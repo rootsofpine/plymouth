@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Spirit: Explore the Pine Tree Flag & Transcendentalist connection in Plymouth, New Hampshire">
     <title>The Spirit | Plymouth Roots & Pines - Transcendentalist Connection</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,8 +37,9 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--night-sky);
             color: var(--snow-white);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
@@ -47,42 +49,46 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
+            width: 100%;
         }
 
         /* -------------------------------- */
-        /* HEADER / NAVIGATION */
+        /* HEADER / NAVIGATION - OPTIMIZED */
         /* -------------------------------- */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 47, 10, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 47, 10, 0.98);
             border-bottom: 1px solid rgba(139, 69, 19, 0.3);
-            padding: 1.2rem 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+            transition: padding 0.3s ease, background 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-decoration: none;
+            min-width: 0;
         }
 
         .flag-icon {
-            width: 50px;
-            height: 35px;
+            width: 40px;
+            height: 28px;
             background-color: var(--sky-blue);
             position: relative;
             border: 1px solid var(--tree-trunk);
@@ -96,14 +102,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 30px;
-            height: 25px;
+            width: 24px;
+            height: 20px;
             background-color: var(--pine-green);
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         }
 
         .logo-text h1 {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             color: var(--snow-white);
             letter-spacing: 0.5px;
             line-height: 1.1;
@@ -111,24 +117,26 @@
 
         .logo-text span {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--sky-blue);
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         .nav-desktop {
             display: flex;
-            gap: 40px;
+            gap: 30px;
         }
 
         .nav-desktop a {
             color: var(--snow-white);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
             position: relative;
             padding: 8px 0;
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         .nav-desktop a::after {
@@ -157,54 +165,57 @@
             color: var(--snow-white);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 5px;
+            min-width: 44px;
+            min-height: 44px;
         }
 
         /* -------------------------------- */
-        /* HERO SECTION - SPIRIT PAGE */
+        /* HERO SECTION - SPIRIT PAGE OPTIMIZED */
         /* -------------------------------- */
         .spirit-hero {
             position: relative;
             min-height: 90vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9));
-            padding-top: 100px;
-        }
-
-        /* Fixed background image with separate properties */
-        .spirit-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/plymouth-woods.jpg');
+            background: 
+                linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)),
+                url('images/plymouth-woods.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
+            background-repeat: no-repeat;
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+
+        /* Disable fixed background on mobile for performance */
+        @media (min-width: 769px) {
+            .spirit-hero {
+                background-attachment: fixed;
+            }
         }
 
         .spirit-hero-content {
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
+            padding: 20px;
         }
 
         .spirit-subtitle {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
             color: var(--sky-blue);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-style: italic;
         }
 
         .spirit-hero-title {
-            font-size: 4.2rem;
-            margin-bottom: 30px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            margin-bottom: 20px;
             color: var(--snow-white);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            word-wrap: break-word;
         }
 
         .spirit-hero-title span {
@@ -213,44 +224,45 @@
         }
 
         .spirit-hero-description {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             max-width: 700px;
             margin: 0 auto 40px;
             color: rgba(248, 249, 250, 0.9);
+            line-height: 1.6;
         }
 
         /* -------------------------------- */
-        /* SECTION STYLES */
+        /* SECTION STYLES OPTIMIZED */
         /* -------------------------------- */
         .content-section {
-            padding: 120px 0;
+            padding: 80px 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .section-tag {
             display: inline-block;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: var(--sky-blue);
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 3.2rem;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             color: var(--snow-white);
             position: relative;
             display: inline-block;
         }
 
         /* -------------------------------- */
-        /* FLAG EXPLANATION SECTION */
+        /* FLAG EXPLANATION SECTION OPTIMIZED */
         /* -------------------------------- */
         .flag-section {
             background-color: var(--moonlight);
@@ -258,8 +270,8 @@
 
         .flag-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             align-items: center;
         }
 
@@ -268,6 +280,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
         .flag-image {
@@ -276,28 +289,32 @@
             border-radius: 8px;
             overflow: hidden;
             border: 3px solid var(--tree-trunk);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 2/1;
+            object-fit: cover;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .flag-image-caption {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             color: var(--sky-blue);
-            font-size: 1.1rem;
+            font-size: 1rem;
+            padding: 0 10px;
         }
 
         .flag-text h3 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
             color: var(--snow-white);
         }
 
         .flag-text p {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: rgba(248, 249, 250, 0.85);
-            font-size: 1.1rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .highlight {
@@ -308,14 +325,14 @@
         .quote-block {
             background: rgba(212, 175, 55, 0.1);
             border-left: 4px solid var(--transcend-gold);
-            padding: 25px;
-            margin: 30px 0;
+            padding: 20px;
+            margin: 25px 0;
             border-radius: 0 8px 8px 0;
         }
 
         .quote-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             line-height: 1.5;
             color: var(--parchment);
             font-style: italic;
@@ -325,37 +342,33 @@
         .quote-author {
             font-family: 'Inter', sans-serif;
             color: var(--transcend-gold);
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-align: right;
         }
 
         /* -------------------------------- */
-        /* TRANSCENDENTALIST SECTION */
+        /* TRANSCENDENTALIST SECTION OPTIMIZED */
         /* -------------------------------- */
         .transcendentalist-section {
             position: relative;
-            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9));
-        }
-
-        /* Fixed background for this section */
-        .transcendentalist-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/plymouth-river.jpg');
+            background: 
+                linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)),
+                url('images/plymouth-river.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
+            background-repeat: no-repeat;
+        }
+
+        @media (min-width: 769px) {
+            .transcendentalist-section {
+                background-attachment: fixed;
+            }
         }
 
         .transcendentalist-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             align-items: center;
         }
 
@@ -364,32 +377,36 @@
             border-radius: 8px;
             overflow: hidden;
             border: 3px solid var(--tree-trunk);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .transcendentalist-text h3 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
             color: var(--snow-white);
         }
 
         .transcendentalist-text p {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: rgba(248, 249, 250, 0.85);
-            font-size: 1.1rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .principles-list {
-            margin: 30px 0;
+            margin: 25px 0;
             padding-left: 20px;
         }
 
         .principles-list li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: rgba(248, 249, 250, 0.85);
-            font-size: 1.1rem;
+            font-size: 1rem;
             position: relative;
-            padding-left: 30px;
+            padding-left: 25px;
+            line-height: 1.5;
         }
 
         .principles-list li:before {
@@ -397,11 +414,11 @@
             position: absolute;
             left: 0;
             color: var(--transcend-gold);
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         /* -------------------------------- */
-        /* PLYMOUTH CONNECTION SECTION */
+        /* PLYMOUTH CONNECTION SECTION OPTIMIZED */
         /* -------------------------------- */
         .plymouth-connection-section {
             background-color: var(--night-sky);
@@ -409,8 +426,8 @@
 
         .connection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 30px;
         }
 
         .connection-card {
@@ -418,8 +435,9 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(135, 206, 235, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
             height: 100%;
+            position: relative;
         }
 
         .connection-card::before {
@@ -433,87 +451,92 @@
         }
 
         .connection-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: rgba(135, 206, 235, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .card-image {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
+            aspect-ratio: 16/9;
         }
 
         .card-body {
-            padding: 30px;
+            padding: 25px 20px;
         }
 
         .card-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             color: var(--snow-white);
         }
 
         .card-description {
             color: rgba(248, 249, 250, 0.8);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* -------------------------------- */
-        /* CALL TO ACTION SECTION */
+        /* CALL TO ACTION SECTION OPTIMIZED */
         /* -------------------------------- */
         .cta-section {
             position: relative;
-            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9));
-            text-align: center;
-            padding: 120px 0;
-        }
-
-        /* Fixed background for CTA section */
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/white-pine-tree.jpg');
+            background: 
+                linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)),
+                url('images/white-pine-tree.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        @media (min-width: 769px) {
+            .cta-section {
+                background-attachment: fixed;
+            }
         }
 
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .cta-title {
-            font-size: 3rem;
-            margin-bottom: 30px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
             color: var(--snow-white);
         }
 
         .cta-description {
-            font-size: 1.3rem;
-            margin-bottom: 50px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 40px;
             color: rgba(248, 249, 250, 0.9);
+            line-height: 1.6;
         }
 
         .btn {
-            padding: 16px 32px;
+            padding: 14px 28px;
             border-radius: 2px;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            margin: 0 10px;
+            min-height: 50px;
+            min-width: 160px;
+            text-align: center;
+            margin: 5px;
         }
 
         .btn-primary {
@@ -523,8 +546,8 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(1, 121, 111, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(1, 121, 111, 0.3);
         }
 
         .btn-outline {
@@ -535,41 +558,43 @@
 
         .btn-outline:hover {
             background: var(--tree-trunk);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.2);
         }
 
         /* -------------------------------- */
-        /* FOOTER */
+        /* FOOTER OPTIMIZED */
         /* -------------------------------- */
         footer {
             background: var(--deep-forest);
-            padding: 80px 0 30px;
+            padding: 60px 0 25px;
             border-top: 3px solid var(--tree-trunk);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-logo h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
             color: var(--snow-white);
         }
 
         .footer-logo p {
             color: rgba(248, 249, 250, 0.7);
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .footer-nav h4 {
             font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
+            font-size: 1rem;
+            margin-bottom: 20px;
             color: var(--sky-blue);
             position: relative;
             padding-bottom: 10px;
@@ -592,148 +617,164 @@
         }
 
         .footer-nav li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-nav a {
             color: rgba(248, 249, 250, 0.8);
             text-decoration: none;
-            transition: color 0.3s, padding-left 0.3s;
+            transition: color 0.3s;
             display: inline-block;
+            font-size: 0.95rem;
         }
 
         .footer-nav a:hover {
             color: var(--sky-blue);
-            padding-left: 5px;
         }
 
         .footer-disclaimer {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 25px;
             border-top: 1px solid rgba(135, 206, 235, 0.2);
             color: rgba(248, 249, 250, 0.6);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             max-width: 800px;
             margin: 0 auto;
             font-style: italic;
+            line-height: 1.5;
+            padding: 25px 20px 0;
         }
 
         /* -------------------------------- */
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN IMPROVED */
         /* -------------------------------- */
-        @media (max-width: 1100px) {
-            .flag-content, .transcendentalist-content {
-                grid-template-columns: 1fr;
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .flag-content,
+            .transcendentalist-content {
+                grid-template-columns: 1fr 1fr;
                 gap: 60px;
             }
-
-            .flag-text, .transcendentalist-text {
-                order: 2;
+            
+            .flag-text,
+            .transcendentalist-text {
+                padding: 0 20px 0 0;
             }
-
-            .flag-image-container, .transcendentalist-image {
-                order: 1;
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .btn {
+                margin: 0;
             }
         }
 
-        @media (max-width: 992px) {
-            .spirit-hero-title {
-                font-size: 3.5rem;
+        @media (min-width: 992px) {
+            .nav-desktop {
+                display: flex;
             }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 40px;
+            }
+        }
 
+        @media (max-width: 991px) {
             .mobile-menu-btn {
                 display: block;
             }
-
+            
             .nav-desktop {
                 display: none;
             }
-
+            
             .nav-mobile {
-                display: none;
                 position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 300px;
-                height: calc(100vh - 80px);
+                top: 70px;
+                right: 0;
+                width: 100%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
                 background: rgba(10, 47, 10, 0.98);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
-                padding: 40px 30px;
-                transition: right 0.5s ease;
+                padding: 30px 20px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
                 z-index: 999;
                 border-left: 2px solid var(--tree-trunk);
+                overflow-y: auto;
             }
-
+            
             .nav-mobile.active {
-                display: flex;
-                right: 0;
+                transform: translateX(0);
             }
-
+            
             .nav-mobile a {
                 color: var(--snow-white);
                 text-decoration: none;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 padding: 15px 0;
                 border-bottom: 1px solid rgba(139, 69, 19, 0.3);
                 display: block;
+                transition: padding-left 0.3s;
             }
-
+            
             .nav-mobile a:hover {
                 color: var(--sky-blue);
                 padding-left: 10px;
             }
-
-            .container {
-                padding: 0 30px;
-            }
-
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                align-items: center;
-            }
-
-            /* Disable fixed background on mobile for better performance */
-            .spirit-hero::before,
-            .transcendentalist-section::before,
-            .cta-section::before {
-                background-attachment: scroll !important;
-            }
         }
 
-        @media (max-width: 768px) {
-            .spirit-hero-title {
-                font-size: 2.8rem;
+        @media (max-width: 767px) {
+            .header-container {
+                padding: 0 15px;
             }
-
-            .section-title {
-                font-size: 2.5rem;
+            
+            .spirit-hero-content {
+                padding: 15px;
             }
-
-            .cta-title {
-                font-size: 2.5rem;
-            }
-
+            
             .connection-grid {
                 grid-template-columns: 1fr;
             }
-
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
             .btn {
                 width: 100%;
                 max-width: 300px;
-                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
 
         /* -------------------------------- */
-        /* ANIMATIONS */
+        /* ANIMATIONS & PERFORMANCE */
         /* -------------------------------- */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -743,19 +784,56 @@
 
         .fade-in {
             opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .delay-1 {
-            animation-delay: 0.2s;
+        .fade-in.animated {
+            animation: fadeInUp 0.6s ease forwards;
         }
 
-        .delay-2 {
-            animation-delay: 0.4s;
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            .fade-in.animated {
+                animation: none;
+                opacity: 1;
+            }
+            
+            .connection-card:hover {
+                transform: none;
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
+            
+            .spirit-hero,
+            .transcendentalist-section,
+            .cta-section {
+                background-attachment: scroll !important;
+            }
         }
 
-        .delay-3 {
-            animation-delay: 0.6s;
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .connection-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
+            
+            .nav-desktop a:hover::after {
+                width: 0;
+            }
         }
     </style>
 </head>
@@ -763,8 +841,8 @@
     <!-- Fixed Navigation -->
     <header>
         <div class="container header-container">
-            <a href="index.html" class="logo">
-                <div class="flag-icon">
+            <a href="index.html" class="logo" aria-label="Plymouth Roots & Pines Home">
+                <div class="flag-icon" aria-hidden="true">
                     <div class="pine-tree"></div>
                 </div>
                 <div class="logo-text">
@@ -773,11 +851,11 @@
                 </div>
             </a>
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <nav class="nav-desktop">
+            <nav class="nav-desktop" aria-label="Main Navigation">
                 <a href="index.html">Home</a>
                 <a href="spirit.html" class="active">The Spirit</a>
                 <a href="timeline.html">Timeline</a>
@@ -787,7 +865,7 @@
                 <a href="about.html">About</a>
             </nav>
 
-            <nav class="nav-mobile" id="navMobile">
+            <nav class="nav-mobile" id="navMobile" aria-label="Mobile Navigation" hidden>
                 <a href="index.html">Home</a>
                 <a href="spirit.html" class="active">The Spirit</a>
                 <a href="timeline.html">Timeline</a>
@@ -820,10 +898,10 @@
 
             <div class="flag-content">
                 <div class="flag-image-container fade-in">
-                    <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="flag-image">
+                    <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="flag-image" loading="lazy" width="500" height="250">
                     <p class="flag-image-caption">The Pine Tree Flag: Symbol of New England's Revolutionary Spirit</p>
                 </div>
-                <div class="flag-text fade-in delay-1">
+                <div class="flag-text fade-in">
                     <h3>A Flag Born of Resistance</h3>
                     <p>
                         The Pine Tree Flag, also known as the "Appeal to Heaven" flag, first flew during the American Revolutionary War as a symbol of New England's resistance to British rule. The white pine tree represented the region's valuable timber resources—particularly the towering Eastern White Pine reserved for the Royal Navy's masts.
@@ -856,9 +934,9 @@
 
             <div class="transcendentalist-content">
                 <div class="fade-in">
-                    <img src="images/emerson-thoreau.jpg" alt="Ralph Waldo Emerson and Henry David Thoreau" class="transcendentalist-image">
+                    <img src="images/emerson-thoreau.jpg" alt="Ralph Waldo Emerson and Henry David Thoreau" class="transcendentalist-image" loading="lazy" width="600" height="450">
                 </div>
-                <div class="transcendentalist-text fade-in delay-1">
+                <div class="transcendentalist-text fade-in">
                     <h3>The Soul in the Wilderness</h3>
                     <p>
                         Transcendentalism emerged in the early 19th century as a philosophical and literary movement centered in Concord, Massachusetts—just a day's journey from Plymouth. Led by thinkers like Ralph Waldo Emerson, Henry David Thoreau, and Margaret Fuller, it emphasized:
@@ -895,7 +973,7 @@
 
             <div class="connection-grid">
                 <div class="connection-card fade-in">
-                    <img src="images/plymouth-common.jpg" alt="Historic Plymouth Common" class="card-image">
+                    <img src="images/plymouth-common.jpg" alt="Historic Plymouth Common" class="card-image" loading="lazy" width="400" height="225">
                     <div class="card-body">
                         <h3 class="card-title">Practical Independence</h3>
                         <p class="card-description">
@@ -905,7 +983,7 @@
                 </div>
 
                 <div class="connection-card fade-in delay-1">
-                    <img src="images/white-pine-tree.jpg" alt="White Pine Tree" class="card-image">
+                    <img src="images/white-pine-tree.jpg" alt="White Pine Tree" class="card-image" loading="lazy" width="400" height="225">
                     <div class="card-body">
                         <h3 class="card-title">The White Pine as Symbol</h3>
                         <p class="card-description">
@@ -915,7 +993,7 @@
                 </div>
 
                 <div class="connection-card fade-in delay-2">
-                    <img src="images/plymouth-river.jpg" alt="Pemigewasset River" class="card-image">
+                    <img src="images/plymouth-river.jpg" alt="Pemigewasset River" class="card-image" loading="lazy" width="400" height="225">
                     <div class="card-body">
                         <h3 class="card-title">Rivers of Reflection</h3>
                         <p class="card-description">
@@ -991,51 +1069,81 @@
         const navMobile = document.getElementById('navMobile');
 
         mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            navMobile.hidden = !navMobile.hidden;
             navMobile.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
+            
+            // Update icon
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = isExpanded ? 'fas fa-bars' : 'fas fa-times';
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-mobile a').forEach(link => {
             link.addEventListener('click', () => {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                navMobile.hidden = true;
                 navMobile.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
             });
         });
 
-        // Header scroll effect
+        // Header scroll effect with throttling
+        let scrollTimeout;
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '0.8rem 0';
-                header.style.background = 'rgba(10, 47, 10, 0.98)';
-            } else {
-                header.style.padding = '1.2rem 0';
-                header.style.background = 'rgba(10, 47, 10, 0.95)';
-            }
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.padding = '0.7rem 0';
+                    header.style.background = 'rgba(10, 47, 10, 0.98)';
+                } else {
+                    header.style.padding = '1rem 0';
+                    header.style.background = 'rgba(10, 47, 10, 0.95)';
+                }
+            }, 10);
         });
 
-        // Animate elements on scroll
+        // Animate elements on scroll with Intersection Observer
         const observerOptions = {
-            threshold: 0.15,
+            threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.classList.add('animated');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all elements meant to fade in
+        // Observe all fade-in elements
         document.querySelectorAll('.fade-in').forEach((el) => {
             observer.observe(el);
         });
+
+        // Preload critical images
+        function preloadImage(url) {
+            const img = new Image();
+            img.src = url;
+        }
+
+        // Preload background images for better performance
+        window.addEventListener('load', () => {
+            preloadImage('images/plymouth-woods.jpg');
+            preloadImage('images/plymouth-river.jpg');
+            preloadImage('images/white-pine-tree.jpg');
+        });
+
+        // Optimize for mobile - disable parallax on touch devices
+        if ('ontouchstart' in window || navigator.maxTouchPoints) {
+            document.querySelectorAll('.spirit-hero, .transcendentalist-section, .cta-section').forEach(section => {
+                section.style.backgroundAttachment = 'scroll';
+            });
+        }
     </script>
 </body>
 </html>
