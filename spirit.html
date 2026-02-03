@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Spirit | Plymouth Roots & Pines - Transcendentalist Connection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --snow-white: #F8F9FA;
+            --tree-trunk: #8B4513;
+            --pine-green: #01796F;
+            --sky-blue: #87CEEB;
+            --deep-forest: #0A2F0A;
+            --night-sky: #0B131E;
+            --moonlight: #1E2A3A;
+            --parchment: #F5E9D4;
+            --copper: #B87333;
+            --transcend-gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--night-sky);
+            color: var(--snow-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* -------------------------------- */
+        /* HEADER / NAVIGATION */
+        /* -------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 47, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+            padding: 1.2rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .flag-icon {
+            width: 50px;
+            height: 35px;
+            background-color: var(--sky-blue);
+            position: relative;
+            border: 1px solid var(--tree-trunk);
+            border-radius: 2px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .flag-icon .pine-tree {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 25px;
+            background-color: var(--pine-green);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--snow-white);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--sky-blue);
+            letter-spacing: 1.5px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-desktop a {
+            color: var(--snow-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--sky-blue), var(--pine-green));
+            transition: width 0.3s ease;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--sky-blue);
+        }
+
+        .nav-desktop a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--snow-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* -------------------------------- */
+        /* HERO SECTION - SPIRIT PAGE */
+        /* -------------------------------- */
+        .spirit-hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth-woods.jpg') center/cover fixed;
+            padding-top: 100px;
+        }
+
+        .spirit-hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .spirit-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .spirit-hero-title {
+            font-size: 4.2rem;
+            margin-bottom: 30px;
+            color: var(--snow-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .spirit-hero-title span {
+            display: block;
+            color: var(--sky-blue);
+        }
+
+        .spirit-hero-description {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(248, 249, 250, 0.9);
+        }
+
+        /* -------------------------------- */
+        /* SECTION STYLES */
+        /* -------------------------------- */
+        .content-section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            color: var(--snow-white);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* -------------------------------- */
+        /* FLAG EXPLANATION SECTION */
+        /* -------------------------------- */
+        .flag-section {
+            background-color: var(--moonlight);
+        }
+
+        .flag-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .flag-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flag-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid var(--tree-trunk);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .flag-image-caption {
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--sky-blue);
+            font-size: 1.1rem;
+        }
+
+        .flag-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--snow-white);
+        }
+
+        .flag-text p {
+            margin-bottom: 25px;
+            color: rgba(248, 249, 250, 0.85);
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--sky-blue);
+            font-weight: 600;
+        }
+
+        .quote-block {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--transcend-gold);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.5;
+            color: var(--parchment);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .quote-author {
+            font-family: 'Inter', sans-serif;
+            color: var(--transcend-gold);
+            font-size: 1rem;
+            text-align: right;
+        }
+
+        /* -------------------------------- */
+        /* TRANSCENDENTALIST SECTION */
+        /* -------------------------------- */
+        .transcendentalist-section {
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth-river.jpg') center/cover fixed;
+        }
+
+        .transcendentalist-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .transcendentalist-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid var(--tree-trunk);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .transcendentalist-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--snow-white);
+        }
+
+        .transcendentalist-text p {
+            margin-bottom: 25px;
+            color: rgba(248, 249, 250, 0.85);
+            font-size: 1.1rem;
+        }
+
+        .principles-list {
+            margin: 30px 0;
+            padding-left: 20px;
+        }
+
+        .principles-list li {
+            margin-bottom: 15px;
+            color: rgba(248, 249, 250, 0.85);
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .principles-list li:before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--transcend-gold);
+            font-size: 1.2rem;
+        }
+
+        /* -------------------------------- */
+        /* PLYMOUTH CONNECTION SECTION */
+        /* -------------------------------- */
+        .plymouth-connection-section {
+            background-color: var(--night-sky);
+        }
+
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .connection-card {
+            background: linear-gradient(145deg, rgba(30, 42, 58, 0.7), rgba(11, 19, 30, 0.9));
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(135, 206, 235, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .connection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--pine-green), var(--sky-blue));
+        }
+
+        .connection-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(135, 206, 235, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--snow-white);
+        }
+
+        .card-description {
+            color: rgba(248, 249, 250, 0.8);
+            margin-bottom: 25px;
+        }
+
+        /* -------------------------------- */
+        /* CALL TO ACTION SECTION */
+        /* -------------------------------- */
+        .cta-section {
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/white-pine-tree.jpg') center/cover fixed;
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--snow-white);
+        }
+
+        .cta-description {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            color: rgba(248, 249, 250, 0.9);
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 2px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: 0 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--pine-green), var(--deep-forest));
+            color: var(--snow-white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(1, 121, 111, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--snow-white);
+            border: 2px solid var(--tree-trunk);
+        }
+
+        .btn-outline:hover {
+            background: var(--tree-trunk);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
+        }
+
+        /* -------------------------------- */
+        /* FOOTER */
+        /* -------------------------------- */
+        footer {
+            background: var(--deep-forest);
+            padding: 80px 0 30px;
+            border-top: 3px solid var(--tree-trunk);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--snow-white);
+        }
+
+        .footer-logo p {
+            color: rgba(248, 249, 250, 0.7);
+            margin-top: 10px;
+        }
+
+        .footer-nav h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--sky-blue);
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-nav h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tree-trunk);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 12px;
+        }
+
+        .footer-nav a {
+            color: rgba(248, 249, 250, 0.8);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-nav a:hover {
+            color: var(--sky-blue);
+            padding-left: 5px;
+        }
+
+        .footer-disclaimer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(135, 206, 235, 0.2);
+            color: rgba(248, 249, 250, 0.6);
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* -------------------------------- */
+        /* RESPONSIVE DESIGN */
+        /* -------------------------------- */
+        @media (max-width: 1100px) {
+            .flag-content, .transcendentalist-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .flag-text, .transcendentalist-text {
+                order: 2;
+            }
+
+            .flag-image-container, .transcendentalist-image {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .spirit-hero-title {
+                font-size: 3.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .nav-mobile {
+                display: none;
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 300px;
+                height: calc(100vh - 80px);
+                background: rgba(10, 47, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 40px 30px;
+                transition: right 0.5s ease;
+                z-index: 999;
+                border-left: 2px solid var(--tree-trunk);
+            }
+
+            .nav-mobile.active {
+                display: flex;
+                right: 0;
+            }
+
+            .nav-mobile a {
+                color: var(--snow-white);
+                text-decoration: none;
+                font-size: 1.2rem;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+                display: block;
+            }
+
+            .nav-mobile a:hover {
+                color: var(--sky-blue);
+                padding-left: 10px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .spirit-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .cta-title {
+                font-size: 2.5rem;
+            }
+
+            .connection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* -------------------------------- */
+        /* ANIMATIONS */
+        /* -------------------------------- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="flag-icon">
+                    <div class="pine-tree"></div>
+                </div>
+                <div class="logo-text">
+                    <h1>PLYMOUTH ROOTS & PINES</h1>
+                    <span>TRANSCENDENTALIST SPIRIT | APPEAL TO HEAVEN</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                <a href="spirit.html" class="active">The Spirit</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="people.html">Notable People</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <nav class="nav-mobile" id="navMobile">
+                <a href="index.html">Home</a>
+                <a href="spirit.html" class="active">The Spirit</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="people.html">Notable People</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="spirit-hero">
+        <div class="container spirit-hero-content fade-in">
+            <p class="spirit-subtitle">Where the White Pine Meets the Transcendent Soul</p>
+            <h1 class="spirit-hero-title">The Pine Tree Flag & <span>The Transcendentalist Spirit</span></h1>
+            <p class="spirit-hero-description">
+                The "Appeal to Heaven" flag is more than a historical artifact—it embodies the philosophical and spiritual foundation of Plymouth's identity. This page explores the profound connection between revolutionary self-reliance, transcendentalist philosophy, and our enduring connection to this land.
+            </p>
+        </div>
+    </section>
+
+    <!-- Flag Explanation Section -->
+    <section class="content-section flag-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Symbol of Sovereignty</span>
+                <h2 class="section-title">The "Appeal to Heaven" Pine Tree Flag</h2>
+            </div>
+
+            <div class="flag-content">
+                <div class="flag-image-container fade-in">
+                    <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="flag-image">
+                    <p class="flag-image-caption">The Pine Tree Flag: Symbol of New England's Revolutionary Spirit</p>
+                </div>
+                <div class="flag-text fade-in delay-1">
+                    <h3>A Flag Born of Resistance</h3>
+                    <p>
+                        The Pine Tree Flag, also known as the "Appeal to Heaven" flag, first flew during the American Revolutionary War as a symbol of New England's resistance to British rule. The white pine tree represented the region's valuable timber resources—particularly the towering Eastern White Pine reserved for the Royal Navy's masts.
+                    </p>
+                    
+                    <div class="quote-block">
+                        <p class="quote-text">"We have no other alternative than independence, or the most ignominious and galling servitude. The legions of our enemies thicken on our plains; desolation and death mark their bloody career."</p>
+                        <p class="quote-author">— John Adams, 1775</p>
+                    </div>
+                    
+                    <p>
+                        The phrase "An Appeal to Heaven" comes from John Locke's Second Treatise on Government, which argued that when all other remedies have been exhausted, people have the right to appeal to heaven for justice. This philosophical foundation resonated deeply with the people of New England, who saw their struggle as both a practical and spiritual fight for self-determination.
+                    </p>
+                    
+                    <p>
+                        For Plymouth, this flag symbolizes more than historical rebellion—it represents the enduring spirit of independence that has defined our community since its founding. The white pine, our state tree, stands as a living testament to this legacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transcendentalist Section -->
+    <section class="content-section transcendentalist-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Philosophical Roots</span>
+                <h2 class="section-title">Transcendentalism & New England</h2>
+            </div>
+
+            <div class="transcendentalist-content">
+                <div class="fade-in">
+                    <img src="images/emerson-thoreau.jpg" alt="Ralph Waldo Emerson and Henry David Thoreau" class="transcendentalist-image">
+                </div>
+                <div class="transcendentalist-text fade-in delay-1">
+                    <h3>The Soul in the Wilderness</h3>
+                    <p>
+                        Transcendentalism emerged in the early 19th century as a philosophical and literary movement centered in Concord, Massachusetts—just a day's journey from Plymouth. Led by thinkers like Ralph Waldo Emerson, Henry David Thoreau, and Margaret Fuller, it emphasized:
+                    </p>
+                    
+                    <ul class="principles-list">
+                        <li>The inherent goodness of people and nature</li>
+                        <li>Individual intuition over established doctrine</li>
+                        <li>Self-reliance and independence of thought</li>
+                        <li>Nature as a pathway to spiritual enlightenment</li>
+                        <li>Civil disobedience against unjust laws</li>
+                    </ul>
+                    
+                    <p>
+                        Thoreau's time at Walden Pond and his advocacy for simple living in harmony with nature directly parallel the practical self-sufficiency that characterized early Plymouth settlers. His essay "Civil Disobedience" echoes the same revolutionary spirit that inspired the Pine Tree Flag decades earlier.
+                    </p>
+                    
+                    <div class="quote-block">
+                        <p class="quote-text">"I went to the woods because I wished to live deliberately, to front only the essential facts of life, and see if I could not learn what it had to teach, and not, when I came to die, discover that I had not lived."</p>
+                        <p class="quote-author">— Henry David Thoreau, Walden</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plymouth Connection Section -->
+    <section class="content-section plymouth-connection-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Our Local Legacy</span>
+                <h2 class="section-title">Plymouth's Dual Heritage</h2>
+            </div>
+
+            <div class="connection-grid">
+                <div class="connection-card fade-in">
+                    <img src="images/plymouth-common.jpg" alt="Historic Plymouth Common" class="card-image">
+                    <div class="card-body">
+                        <h3 class="card-title">Practical Independence</h3>
+                        <p class="card-description">
+                            From its founding in 1763, Plymouth was settled by people embodying practical self-reliance. The town's location at the confluence of the Pemigewasset and Baker rivers required resilience, resourcefulness, and a deep understanding of the natural world—qualities that aligned perfectly with transcendentalist values.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="connection-card fade-in delay-1">
+                    <img src="images/white-pine-tree.jpg" alt="White Pine Tree" class="card-image">
+                    <div class="card-body">
+                        <h3 class="card-title">The White Pine as Symbol</h3>
+                        <p class="card-description">
+                            The Eastern White Pine wasn't just timber—it was a symbol of vertical aspiration. These towering trees, some reaching 150 feet, represented the connection between earth and sky, the practical and the spiritual. For Plymouth's settlers and transcendentalists alike, the pine embodied growth, resilience, and upward striving.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="connection-card fade-in delay-2">
+                    <img src="images/plymouth-river.jpg" alt="Pemigewasset River" class="card-image">
+                    <div class="card-body">
+                        <h3 class="card-title">Rivers of Reflection</h3>
+                        <p class="card-description">
+                            The Pemigewasset and Baker rivers served as both practical transportation routes and sources of spiritual reflection. Like Thoreau's Walden Pond, these waterways provided space for contemplation, connection with nature, and the development of an independent spirit that defines Plymouth to this day.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2 class="cta-title">Continue the Journey</h2>
+                <p class="cta-description">
+                    The spirit of Plymouth is woven through time—from revolutionary flags to transcendentalist philosophy to modern community stewardship. Explore how this legacy continues to shape our town today.
+                </p>
+                <div class="cta-buttons">
+                    <a href="timeline.html" class="btn btn-primary">
+                        <i class="fas fa-history"></i> Explore Our Timeline
+                    </a>
+                    <a href="people.html" class="btn btn-outline">
+                        <i class="fas fa-users"></i> Meet Notable People
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Plymouth Roots & Pines</h3>
+                    <p>For the People of Plymouth, By the People of Plymouth.</p>
+                    <p>A testament to our shared history and enduring spirit.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="spirit.html">The Pine Tree & The Spirit</a></li>
+                        <li><a href="timeline.html">Timeline of Plymouth</a></li>
+                        <li><a href="people.html">Notable People</a></li>
+                        <li><a href="gallery.html">Historical Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="legacy.html">Plymouth Today & Legacy</a></li>
+                        <li><a href="about.html">About This Project</a></li>
+                        <li><a href="about.html">Contact & Contribute</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer-disclaimer">
+                This site is created by and for the residents of Plymouth, New Hampshire.
+                It is a celebration of our shared history and community spirit, not a tourism portal.
+                All content is dedicated to preserving and honoring the Plymouth story.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMobile = document.getElementById('navMobile');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMobile.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-mobile a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMobile.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.8rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.98)';
+            } else {
+                header.style.padding = '1.2rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements meant to fade in
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
