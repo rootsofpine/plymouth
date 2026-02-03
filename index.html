@@ -91,14 +91,14 @@
         }
 
         #hero-section {
-            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-image: url('images/plymouth.jpg');
             justify-content: center;
             text-align: center;
             padding-top: 100px;
         }
 
         #spirit-section {
-            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-image: url('images/plymouth.jpg');
         }
 
         .section-overlay {
@@ -174,10 +174,10 @@
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         }
 
-        /* FIXED: Removed problematic background-clip for logo text */
+        /* FIXED: Simplified logo text to avoid gradient issues */
         .logo-text h1 {
             font-size: 1.5rem;
-            color: var(--snow-white); /* Changed from gradient to solid color */
+            color: var(--snow-white);
             letter-spacing: 0.5px;
             line-height: 1.1;
         }
@@ -233,7 +233,7 @@
         }
 
         /* -------------------------------- */
-        /* HERO CONTENT */
+        /* HERO CONTENT - FIXED GRADIENT TEXT */
         /* -------------------------------- */
         .hero-content {
             max-width: 900px;
@@ -249,21 +249,17 @@
             font-style: italic;
         }
 
-        /* FIXED: Hero title with proper gradient text */
+        /* FIXED: Completely simplified hero title - removed problematic gradient */
         .hero-title {
             font-size: 4.5rem;
             margin-bottom: 30px;
-            color: var(--snow-white); /* Fallback for browsers that don't support background-clip */
-            background: linear-gradient(135deg, var(--snow-white) 30%, var(--sky-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--snow-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-title span {
             display: block;
-            color: var(--pine-green);
-            -webkit-text-fill-color: var(--pine-green);
+            color: var(--sky-blue);
         }
 
         .hero-description {
@@ -639,7 +635,9 @@
                 display: none;
             }
 
+            /* FIXED: Mobile navigation - hidden by default */
             .nav-mobile {
+                display: none;
                 position: fixed;
                 top: 80px;
                 right: -100%;
@@ -655,6 +653,7 @@
             }
 
             .nav-mobile.active {
+                display: flex;
                 right: 0;
             }
 
