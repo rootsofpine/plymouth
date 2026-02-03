@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plymouth Roots & Pines - A digital hearth for Plymouth residents celebrating our history, woods, and transcendentalist spirit.">
     <title>Plymouth Roots & Pines | Transcendentalist Spirit & History</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,8 +37,9 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--night-sky);
             color: var(--snow-white);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
@@ -47,75 +49,71 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
+            width: 100%;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .section-tag {
             display: inline-block;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: var(--sky-blue);
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 3.2rem;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             color: var(--snow-white);
             position: relative;
             display: inline-block;
         }
 
         /* -------------------------------- */
-        /* PARALLAX BACKGROUND SECTIONS */
+        /* PARALLAX BACKGROUND SECTIONS - OPTIMIZED */
         /* -------------------------------- */
         .parallax-section {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background-attachment: fixed;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
             overflow: hidden;
         }
 
+        /* Disable parallax on mobile for performance */
+        @media (min-width: 769px) {
+            .parallax-section {
+                background-attachment: fixed;
+            }
+        }
+
         #hero-section {
-            background-image: url('images/plymouth.jpg');
+            background-image: linear-gradient(rgba(11, 19, 30, 0.9), rgba(11, 19, 30, 0.9)), 
+                              url('images/plymouth.jpg');
             justify-content: center;
             text-align: center;
-            padding-top: 100px;
+            padding-top: 80px;
         }
 
         #spirit-section {
-            background-image: url('images/plymouthair.jpg');
+            background-image: linear-gradient(to right, rgba(11, 19, 30, 0.92) 30%, rgba(11, 19, 30, 0.7)), 
+                              url('images/plymouthair.jpg');
         }
 
         .section-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        #hero-section .section-overlay {
-            background: radial-gradient(circle at center, rgba(10, 47, 10, 0.6) 0%, rgba(11, 19, 30, 0.92) 100%);
-        }
-
-        #spirit-section .section-overlay {
-            background: linear-gradient(to right, rgba(11, 19, 30, 0.92) 30%, rgba(11, 19, 30, 0.7) 100%);
+            display: none; /* Removed redundant overlay */
         }
 
         .section-content {
@@ -125,36 +123,39 @@
         }
 
         /* -------------------------------- */
-        /* FIXED NAVIGATION */
+        /* FIXED NAVIGATION - OPTIMIZED */
         /* -------------------------------- */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 47, 10, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 47, 10, 0.98);
             border-bottom: 1px solid rgba(139, 69, 19, 0.3);
-            padding: 1.2rem 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+            transition: padding 0.3s ease, background 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-decoration: none;
+            min-width: 0;
         }
 
         .flag-icon {
-            width: 50px;
-            height: 35px;
+            width: 40px;
+            height: 28px;
             background-color: var(--sky-blue);
             position: relative;
             border: 1px solid var(--tree-trunk);
@@ -168,15 +169,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 30px;
-            height: 25px;
+            width: 24px;
+            height: 20px;
             background-color: var(--pine-green);
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         }
 
-        /* FIXED: Simplified logo text to avoid gradient issues */
         .logo-text h1 {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             color: var(--snow-white);
             letter-spacing: 0.5px;
             line-height: 1.1;
@@ -184,24 +184,26 @@
 
         .logo-text span {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--sky-blue);
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         .nav-desktop {
             display: flex;
-            gap: 40px;
+            gap: 30px;
         }
 
         .nav-desktop a {
             color: var(--snow-white);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
             position: relative;
             padding: 8px 0;
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         .nav-desktop a::after {
@@ -230,31 +232,34 @@
             color: var(--snow-white);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 5px;
+            min-width: 44px;
+            min-height: 44px;
         }
 
         /* -------------------------------- */
-        /* HERO CONTENT - FIXED GRADIENT TEXT */
+        /* HERO CONTENT - OPTIMIZED */
         /* -------------------------------- */
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 20px;
         }
 
         .hero-motto {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
             color: var(--sky-blue);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-style: italic;
         }
 
-        /* FIXED: Completely simplified hero title - removed problematic gradient */
         .hero-title {
-            font-size: 4.5rem;
-            margin-bottom: 30px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            margin-bottom: 20px;
             color: var(--snow-white);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            word-wrap: break-word;
         }
 
         .hero-title span {
@@ -263,31 +268,36 @@
         }
 
         .hero-description {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             max-width: 700px;
-            margin: 0 auto 50px;
+            margin: 0 auto 40px;
             color: rgba(248, 249, 250, 0.9);
+            line-height: 1.6;
         }
 
         .hero-cta {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 16px 32px;
+            padding: 14px 28px;
             border-radius: 2px;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            min-height: 50px;
+            min-width: 160px;
+            text-align: center;
         }
 
         .btn-primary {
@@ -297,8 +307,8 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(1, 121, 111, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(1, 121, 111, 0.3);
         }
 
         .btn-outline {
@@ -309,15 +319,15 @@
 
         .btn-outline:hover {
             background: var(--tree-trunk);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.2);
         }
 
         /* -------------------------------- */
         /* TRANSCENDENTALIST QUOTE */
         /* -------------------------------- */
         .transcendentalist-quote {
-            padding: 80px 0;
+            padding: 60px 0;
             background: linear-gradient(to bottom, var(--deep-forest), var(--night-sky));
             text-align: center;
             position: relative;
@@ -325,7 +335,7 @@
         }
 
         .quote-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
             position: relative;
@@ -334,20 +344,20 @@
         .quote-container::before {
             content: '"';
             position: absolute;
-            top: -40px;
-            left: 0;
+            top: -30px;
+            left: 10px;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 8rem;
-            color: rgba(135, 206, 235, 0.15);
+            font-size: clamp(4rem, 10vw, 8rem);
+            color: rgba(135, 206, 235, 0.1);
             z-index: 1;
         }
 
         .quote-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
             line-height: 1.4;
             color: var(--parchment);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
             font-style: italic;
@@ -355,19 +365,19 @@
 
         .quote-author {
             font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--transcend-gold);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         /* -------------------------------- */
-        /* SPIRIT SECTION CONTENT */
+        /* SPIRIT SECTION CONTENT - OPTIMIZED */
         /* -------------------------------- */
         .spirit-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             align-items: center;
         }
 
@@ -382,35 +392,39 @@
         .authentic-flag {
             width: 100%;
             max-width: 500px;
-            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+            height: auto;
             border-radius: 4px;
             overflow: hidden;
             border: 2px solid var(--tree-trunk);
+            aspect-ratio: 2/1;
+            object-fit: cover;
         }
 
         .flag-caption {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             color: var(--sky-blue);
-            font-size: 1.1rem;
+            font-size: 1rem;
+            padding: 0 10px;
         }
 
         .spirit-text {
-            padding-right: 40px;
+            padding: 0;
         }
 
         .spirit-text h3 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
             color: var(--snow-white);
         }
 
         .spirit-text p {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: rgba(248, 249, 250, 0.85);
-            font-size: 1.1rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .highlight {
@@ -421,8 +435,8 @@
         .transcendentalist-note {
             background: rgba(212, 175, 55, 0.1);
             border-left: 4px solid var(--transcend-gold);
-            padding: 20px;
-            margin: 30px 0;
+            padding: 15px;
+            margin: 25px 0;
             border-radius: 0 4px 4px 0;
         }
 
@@ -430,22 +444,23 @@
             color: var(--parchment);
             font-style: italic;
             margin-bottom: 0;
+            font-size: 0.95rem;
         }
 
         /* -------------------------------- */
-        /* TIMELINE & FEATURES */
+        /* TIMELINE & FEATURES - OPTIMIZED */
         /* -------------------------------- */
         .content-section {
-            padding: 120px 0;
+            padding: 80px 0;
             background-color: var(--night-sky);
             position: relative;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .feature-card {
@@ -453,7 +468,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(135, 206, 235, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
             height: 100%;
             position: relative;
         }
@@ -469,19 +484,19 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: rgba(135, 206, 235, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .card-content {
-            padding: 40px 30px;
+            padding: 30px 20px;
         }
 
         .card-icon {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 25px;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -491,19 +506,21 @@
         }
 
         .card-icon i {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--sky-blue);
         }
 
         .card-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             color: var(--snow-white);
         }
 
         .card-description {
             color: rgba(248, 249, 250, 0.8);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .card-link {
@@ -514,6 +531,7 @@
             align-items: center;
             gap: 8px;
             transition: gap 0.3s;
+            font-size: 0.9rem;
         }
 
         .card-link:hover {
@@ -521,36 +539,38 @@
         }
 
         /* -------------------------------- */
-        /* FOOTER */
+        /* FOOTER - OPTIMIZED */
         /* -------------------------------- */
         footer {
             background: var(--deep-forest);
-            padding: 80px 0 30px;
+            padding: 60px 0 25px;
             border-top: 3px solid var(--tree-trunk);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-logo h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
             color: var(--snow-white);
         }
 
         .footer-logo p {
             color: rgba(248, 249, 250, 0.7);
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .footer-nav h4 {
             font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
+            font-size: 1rem;
+            margin-bottom: 20px;
             color: var(--sky-blue);
             position: relative;
             padding-bottom: 10px;
@@ -573,149 +593,160 @@
         }
 
         .footer-nav li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-nav a {
             color: rgba(248, 249, 250, 0.8);
             text-decoration: none;
-            transition: color 0.3s, padding-left 0.3s;
+            transition: color 0.3s;
             display: inline-block;
+            font-size: 0.95rem;
         }
 
         .footer-nav a:hover {
             color: var(--sky-blue);
-            padding-left: 5px;
         }
 
         .footer-disclaimer {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 25px;
             border-top: 1px solid rgba(135, 206, 235, 0.2);
             color: rgba(248, 249, 250, 0.6);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             max-width: 800px;
             margin: 0 auto;
             font-style: italic;
+            line-height: 1.5;
+            padding: 25px 20px 0;
         }
 
         /* -------------------------------- */
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN - IMPROVED */
         /* -------------------------------- */
-        @media (max-width: 1100px) {
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+            
             .spirit-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 60px;
             }
-
+            
             .spirit-text {
-                padding-right: 0;
-                order: 2;
+                padding-right: 20px;
             }
-
-            .flag-display {
-                order: 1;
+            
+            .hero-cta {
+                flex-direction: row;
+            }
+            
+            .btn {
+                min-width: 180px;
             }
         }
 
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 3.5rem;
+        @media (min-width: 992px) {
+            .nav-desktop {
+                display: flex;
             }
-
-            .quote-text {
-                font-size: 1.8rem;
+            
+            .mobile-menu-btn {
+                display: none;
             }
+            
+            .container {
+                padding: 0 40px;
+            }
+        }
 
+        @media (max-width: 991px) {
             .mobile-menu-btn {
                 display: block;
             }
-
+            
             .nav-desktop {
                 display: none;
             }
-
-            /* FIXED: Mobile navigation - hidden by default */
+            
             .nav-mobile {
-                display: none;
                 position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 300px;
-                height: calc(100vh - 80px);
+                top: 70px;
+                right: 0;
+                width: 100%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
                 background: rgba(10, 47, 10, 0.98);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
-                padding: 40px 30px;
-                transition: right 0.5s ease;
+                padding: 30px 20px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
                 z-index: 999;
                 border-left: 2px solid var(--tree-trunk);
+                overflow-y: auto;
             }
-
+            
             .nav-mobile.active {
-                display: flex;
-                right: 0;
+                transform: translateX(0);
             }
-
+            
             .nav-mobile a {
                 color: var(--snow-white);
                 text-decoration: none;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 padding: 15px 0;
                 border-bottom: 1px solid rgba(139, 69, 19, 0.3);
                 display: block;
+                transition: padding-left 0.3s;
             }
-
+            
             .nav-mobile a:hover {
                 color: var(--sky-blue);
                 padding-left: 10px;
             }
-
-            .container {
-                padding: 0 30px;
-            }
         }
 
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.8rem;
+        @media (max-width: 767px) {
+            .header-container {
+                padding: 0 15px;
             }
-
-            .section-title {
-                font-size: 2.5rem;
+            
+            .hero-content {
+                padding: 15px;
             }
-
-            .quote-text {
-                font-size: 1.6rem;
-            }
-
+            
             .hero-cta {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
+                max-width: 300px;
+                margin: 0 auto;
             }
-
+            
             .btn {
                 width: 100%;
                 max-width: 300px;
                 justify-content: center;
             }
-
+            
             .features-grid {
                 grid-template-columns: 1fr;
             }
-
-            .parallax-section {
-                background-attachment: scroll;
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
 
         /* -------------------------------- */
-        /* ANIMATIONS */
+        /* ANIMATIONS & PERFORMANCE */
         /* -------------------------------- */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -724,19 +755,47 @@
         }
 
         .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
         }
 
-        .delay-1 {
-            animation-delay: 0.2s;
+        .fade-in.animated {
+            animation: fadeInUp 0.6s ease forwards;
         }
 
-        .delay-2 {
-            animation-delay: 0.4s;
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            .fade-in.animated {
+                animation: none;
+                opacity: 1;
+            }
+            
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
         }
 
-        .delay-3 {
-            animation-delay: 0.6s;
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .feature-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -744,8 +803,8 @@
     <!-- Fixed Navigation -->
     <header>
         <div class="container header-container">
-            <a href="index.html" class="logo">
-                <div class="flag-icon">
+            <a href="index.html" class="logo" aria-label="Plymouth Roots & Pines Home">
+                <div class="flag-icon" aria-hidden="true">
                     <div class="pine-tree"></div>
                 </div>
                 <div class="logo-text">
@@ -754,11 +813,11 @@
                 </div>
             </a>
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <nav class="nav-desktop">
+            <nav class="nav-desktop" aria-label="Main Navigation">
                 <a href="index.html">Home</a>
                 <a href="spirit.html">The Spirit</a>
                 <a href="timeline.html">Timeline</a>
@@ -768,7 +827,7 @@
                 <a href="about.html">About</a>
             </nav>
 
-            <nav class="nav-mobile" id="navMobile">
+            <nav class="nav-mobile" id="navMobile" aria-label="Mobile Navigation" hidden>
                 <a href="index.html">Home</a>
                 <a href="spirit.html">The Spirit</a>
                 <a href="timeline.html">Timeline</a>
@@ -782,19 +841,18 @@
 
     <!-- Hero Section with Parallax Background -->
     <section id="hero-section" class="parallax-section">
-        <div class="section-overlay"></div>
         <div class="section-content">
-            <div class="container hero-content fade-in">
-                <p class="hero-motto">In Wildness is the preservation of the World</p>
-                <h1 class="hero-title">Our History, <span>Our Woods, Our Spirit</span></h1>
-                <p class="hero-description">
+            <div class="container hero-content">
+                <p class="hero-motto fade-in">In Wildness is the preservation of the World</p>
+                <h1 class="hero-title fade-in">Our History, <span>Our Woods, Our Spirit</span></h1>
+                <p class="hero-description fade-in">
                     This is the digital hearth for those who call Plymouth home. Founded in <span class="highlight">1763</span> at the confluence of the Pemigewasset and Baker rivers, our story is carved from the white pine forests and forged by the independent spirit of New Hampshire. This is not a guide for visitors; it is a living archive for those connected to this land.
                 </p>
                 <div class="hero-cta">
-                    <a href="spirit.html" class="btn btn-primary">
+                    <a href="spirit.html" class="btn btn-primary fade-in delay-1">
                         <i class="fas fa-tree"></i> Explore The Spirit
                     </a>
-                    <a href="timeline.html" class="btn btn-outline">
+                    <a href="timeline.html" class="btn btn-outline fade-in delay-2">
                         <i class="fas fa-history"></i> Walk Through Time
                     </a>
                 </div>
@@ -808,22 +866,21 @@
             <p class="quote-text fade-in">
                 We must look for a long time before we can see. The habit of a life time cannot be thrown off in an instant. How long did I roam those woods before I learned to see what was around me?
             </p>
-            <p class="quote-author fade-in delay-1">— Henry David Thoreau, Journal (1857)</p>
+            <p class="quote-author fade-in">— Henry David Thoreau, Journal (1857)</p>
         </div>
     </section>
 
     <!-- Spirit Section with Parallax Background & Authentic Flag -->
     <section id="spirit-section" class="parallax-section">
-        <div class="section-overlay"></div>
         <div class="section-content">
             <div class="container">
                 <div class="spirit-grid">
                     <div class="flag-display fade-in">
                         <!-- Using your local pinetreeflag.jpg image -->
-                        <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="authentic-flag">
+                        <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="authentic-flag" loading="lazy" width="500" height="250">
                         <p class="flag-caption">The "An Appeal to Heaven" Flag – A symbol of revolutionary self-reliance and divine appeal</p>
                     </div>
-                    <div class="spirit-text fade-in delay-1">
+                    <div class="spirit-text fade-in">
                         <h3>The Woodsmen's Transcendent Creed</h3>
                         <p>
                             The towering white pines that once dominated our landscape were more than timber; they were the <span class="highlight">masts of sovereignty</span> and a living testament to the transcendentalist ideal of nature as divine manifestation. This flag embodies not just political defiance, but the spiritual self-reliance that Thoreau and Emerson championed.
@@ -946,50 +1003,72 @@
         const navMobile = document.getElementById('navMobile');
 
         mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            navMobile.hidden = !navMobile.hidden;
             navMobile.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
+            
+            // Update icon
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = isExpanded ? 'fas fa-bars' : 'fas fa-times';
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-mobile a').forEach(link => {
             link.addEventListener('click', () => {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                navMobile.hidden = true;
                 navMobile.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
             });
         });
 
-        // Header scroll effect
+        // Header scroll effect with throttling
+        let scrollTimeout;
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '0.8rem 0';
-                header.style.background = 'rgba(10, 47, 10, 0.98)';
-            } else {
-                header.style.padding = '1.2rem 0';
-                header.style.background = 'rgba(10, 47, 10, 0.95)';
-            }
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.padding = '0.7rem 0';
+                    header.style.background = 'rgba(10, 47, 10, 0.98)';
+                } else {
+                    header.style.padding = '1rem 0';
+                    header.style.background = 'rgba(10, 47, 10, 0.95)';
+                }
+            }, 10);
         });
 
-        // Animate elements on scroll
+        // Animate elements on scroll with Intersection Observer
         const observerOptions = {
-            threshold: 0.15,
+            threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.classList.add('animated');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all elements meant to fade in
+        // Observe all fade-in elements
         document.querySelectorAll('.fade-in').forEach((el) => {
             observer.observe(el);
+        });
+
+        // Preload critical images
+        function preloadImage(url) {
+            const img = new Image();
+            img.src = url;
+        }
+
+        // Preload hero and spirit background images
+        window.addEventListener('load', () => {
+            preloadImage('images/plymouth.jpg');
+            preloadImage('images/plymouthair.jpg');
         });
     </script>
 </body>
