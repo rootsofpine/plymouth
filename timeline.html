@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline | Plymouth Roots & Pines - A Journey Through Time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --snow-white: #F8F9FA;
+            --tree-trunk: #8B4513;
+            --pine-green: #01796F;
+            --sky-blue: #87CEEB;
+            --deep-forest: #0A2F0A;
+            --night-sky: #0B131E;
+            --moonlight: #1E2A3A;
+            --parchment: #F5E9D4;
+            --copper: #B87333;
+            --transcend-gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--night-sky);
+            color: var(--snow-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* -------------------------------- */
+        /* HEADER / NAVIGATION */
+        /* -------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 47, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+            padding: 1.2rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .flag-icon {
+            width: 50px;
+            height: 35px;
+            background-color: var(--sky-blue);
+            position: relative;
+            border: 1px solid var(--tree-trunk);
+            border-radius: 2px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .flag-icon .pine-tree {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 25px;
+            background-color: var(--pine-green);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--snow-white);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--sky-blue);
+            letter-spacing: 1.5px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-desktop a {
+            color: var(--snow-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--sky-blue), var(--pine-green));
+            transition: width 0.3s ease;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--sky-blue);
+        }
+
+        .nav-desktop a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--snow-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* -------------------------------- */
+        /* HERO SECTION - TIMELINE PAGE */
+        /* -------------------------------- */
+        .timeline-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth.jpg') center/cover fixed;
+            padding-top: 100px;
+        }
+
+        .timeline-hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .timeline-hero-title {
+            font-size: 4.2rem;
+            margin-bottom: 30px;
+            color: var(--snow-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .timeline-hero-description {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(248, 249, 250, 0.9);
+        }
+
+        /* -------------------------------- */
+        /* TIMELINE CONTAINER */
+        /* -------------------------------- */
+        .timeline-container {
+            padding: 120px 0;
+            background-color: var(--night-sky);
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--pine-green), var(--sky-blue));
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        @media (max-width: 992px) {
+            .timeline-container::before {
+                left: 40px;
+            }
+        }
+
+        /* -------------------------------- */
+        /* TIMELINE ERA SECTIONS */
+        /* -------------------------------- */
+        .timeline-era {
+            margin-bottom: 100px;
+        }
+
+        .era-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .era-tag {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .era-title {
+            font-size: 3.2rem;
+            color: var(--snow-white);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* -------------------------------- */
+        /* TIMELINE ITEMS */
+        /* -------------------------------- */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+            padding-right: calc(50% + 40px);
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+            padding-left: calc(50% + 40px);
+        }
+
+        .timeline-item-content {
+            background: linear-gradient(145deg, rgba(30, 42, 58, 0.7), rgba(11, 19, 30, 0.9));
+            border-radius: 8px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid rgba(135, 206, 235, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .timeline-item-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--pine-green);
+            border: 3px solid var(--sky-blue);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-item-content::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-item-content::before {
+            left: -60px;
+        }
+
+        .timeline-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--transcend-gold);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .timeline-event-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--snow-white);
+        }
+
+        .timeline-description {
+            color: rgba(248, 249, 250, 0.85);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-highlight {
+            color: var(--sky-blue);
+            font-weight: 600;
+        }
+
+        .timeline-note {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--transcend-gold);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+            color: var(--parchment);
+        }
+
+        @media (max-width: 992px) {
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding: 0 0 0 80px;
+            }
+
+            .timeline-item-content::before {
+                left: -60px !important;
+                right: auto !important;
+            }
+        }
+
+        /* -------------------------------- */
+        /* TIMELINE TABLE (ALTERNATIVE VIEW) */
+        /* -------------------------------- */
+        .timeline-table-container {
+            max-width: 1000px;
+            margin: 80px auto 0;
+            overflow-x: auto;
+        }
+
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(30, 42, 58, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .timeline-table th {
+            background: linear-gradient(135deg, var(--pine-green), var(--deep-forest));
+            color: var(--snow-white);
+            padding: 20px;
+            text-align: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            border-bottom: 3px solid var(--tree-trunk);
+        }
+
+        .timeline-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(135, 206, 235, 0.1);
+            color: rgba(248, 249, 250, 0.9);
+        }
+
+        .table-date {
+            font-weight: 600;
+            color: var(--transcend-gold);
+            width: 120px;
+            vertical-align: top;
+        }
+
+        .table-event {
+            font-weight: 600;
+            color: var(--snow-white);
+            width: 200px;
+        }
+
+        .table-description {
+            color: rgba(248, 249, 250, 0.8);
+        }
+
+        .timeline-table tr:hover {
+            background: rgba(135, 206, 235, 0.05);
+        }
+
+        /* -------------------------------- */
+        /* FOOTER */
+        /* -------------------------------- */
+        footer {
+            background: var(--deep-forest);
+            padding: 80px 0 30px;
+            border-top: 3px solid var(--tree-trunk);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--snow-white);
+        }
+
+        .footer-logo p {
+            color: rgba(248, 249, 250, 0.7);
+            margin-top: 10px;
+        }
+
+        .footer-nav h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--sky-blue);
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-nav h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tree-trunk);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 12px;
+        }
+
+        .footer-nav a {
+            color: rgba(248, 249, 250, 0.8);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-nav a:hover {
+            color: var(--sky-blue);
+            padding-left: 5px;
+        }
+
+        .footer-disclaimer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(135, 206, 235, 0.2);
+            color: rgba(248, 249, 250, 0.6);
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* -------------------------------- */
+        /* RESPONSIVE DESIGN */
+        /* -------------------------------- */
+        @media (max-width: 992px) {
+            .timeline-hero-title {
+                font-size: 3.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .nav-mobile {
+                display: none;
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 300px;
+                height: calc(100vh - 80px);
+                background: rgba(10, 47, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 40px 30px;
+                transition: right 0.5s ease;
+                z-index: 999;
+                border-left: 2px solid var(--tree-trunk);
+            }
+
+            .nav-mobile.active {
+                display: flex;
+                right: 0;
+            }
+
+            .nav-mobile a {
+                color: var(--snow-white);
+                text-decoration: none;
+                font-size: 1.2rem;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+                display: block;
+            }
+
+            .nav-mobile a:hover {
+                color: var(--sky-blue);
+                padding-left: 10px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .era-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline-table-container {
+                margin: 40px auto 0;
+            }
+
+            .timeline-table {
+                display: block;
+            }
+
+            .timeline-table th,
+            .timeline-table td {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+
+            .table-date, .table-event {
+                width: auto;
+            }
+        }
+
+        /* -------------------------------- */
+        /* ANIMATIONS */
+        /* -------------------------------- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="flag-icon">
+                    <div class="pine-tree"></div>
+                </div>
+                <div class="logo-text">
+                    <h1>PLYMOUTH ROOTS & PINES</h1>
+                    <span>TRANSCENDENTALIST SPIRIT | APPEAL TO HEAVEN</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                <a href="spirit.html">The Spirit</a>
+                <a href="timeline.html" class="active">Timeline</a>
+                <a href="people.html">Notable People</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <nav class="nav-mobile" id="navMobile">
+                <a href="index.html">Home</a>
+                <a href="spirit.html">The Spirit</a>
+                <a href="timeline.html" class="active">Timeline</a>
+                <a href="people.html">Notable People</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="timeline-hero">
+        <div class="container timeline-hero-content fade-in">
+            <p class="timeline-subtitle">Markers of Time in the Pemigewasset Valley</p>
+            <h1 class="timeline-hero-title">A Chronicle of Plymouth</h1>
+            <p class="timeline-hero-description">
+                From its earliest days at the confluence of rivers to its growth as a center of education and community, Plymouth's story is written in the land itself. This timeline traces the significant moments that have shaped our town's character and spirit.
+            </p>
+        </div>
+    </section>
+
+    <!-- Timeline Container -->
+    <section class="timeline-container">
+        <div class="container">
+            
+            <!-- Colonial Era -->
+            <div class="timeline-era fade-in">
+                <div class="era-header">
+                    <span class="era-tag">Foundations & Frontiers</span>
+                    <h2 class="era-title">The Colonial Era</h2>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">1712</div>
+                        <h3 class="timeline-event-title">Conflict in the Pemigewasset Valley</h3>
+                        <p class="timeline-description">
+                            During Queen Anne's War, Captain Thomas Baker burned an Abenaki village at the site of present-day Plymouth[citation:1]. This event reflects the complex colonial history that preceded the town's official founding, a reminder of the land's deeper history before settlement.
+                        </p>
+                        <div class="timeline-note">
+                            The land that would become Plymouth had been home to indigenous communities long before colonial settlement.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">1763</div>
+                        <h3 class="timeline-event-title">Incorporation of New Plymouth</h3>
+                        <p class="timeline-description">
+                            <span class="timeline-highlight">Plymouth was officially incorporated</span>, named "New Plymouth" after the original Plymouth Colony in Massachusetts[citation:1]. Colonial Governor Benning Wentworth granted the town to soldiers from Hollis who had served in the French and Indian War, some of whom traced their origins to Plymouth, Massachusetts[citation:1].
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">1806</div>
+                        <h3 class="timeline-event-title">A Young Lawyer's First Case</h3>
+                        <p class="timeline-description">
+                            A young attorney named Daniel Webster lost his first criminal case at the Plymouth courthouse[citation:1]. This building would later become home to the Plymouth Historical Society, connecting legal history with community preservation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 19th Century Growth -->
+            <div class="timeline-era fade-in delay-1">
+                <div class="era-header">
+                    <span class="era-tag">Growth & Transformation</span>
+                    <h2 class="era-title">The 19th Century</h2>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">1845 & 1860</div>
+                        <h3 class="timeline-event-title">Expanding Borders</h3>
+                        <p class="timeline-description">
+                            Plymouth expanded its territory by annexing parts of the neighboring towns of Hebron and Campton[citation:1][citation:5]. This period of growth reflected the town's increasing importance as a regional center in the Pemigewasset Valley.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">1864</div>
+                        <h3 class="timeline-event-title">Literary History in Plymouth</h3>
+                        <p class="timeline-description">
+                            The author Nathaniel Hawthorne died in Plymouth while on vacation with former U.S. President Franklin Pierce[citation:1]. He was staying at the Pemigewasset House, a prominent hotel that would later be destroyed by fire in 1909[citation:1].
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">1871</div>
+                        <h3 class="timeline-event-title">A Foundation for Education</h3>
+                        <p class="timeline-description">
+                            <span class="timeline-highlight">The Plymouth Normal School was founded</span>, emerging from the already established Holmes Plymouth Academy[citation:1]. This institution represented New Hampshire's commitment to teacher education and would become the seed from which Plymouth State University grew.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20th Century & Beyond -->
+            <div class="timeline-era fade-in delay-2">
+                <div class="era-header">
+                    <span class="era-tag">Modern Identity</span>
+                    <h2 class="era-title">20th Century & Beyond</h2>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">Early 1900s</div>
+                        <h3 class="timeline-event-title">Plymouth's Connection to Baseball Greats</h3>
+                        <p class="timeline-description">
+                            The Draper and Maynard Sporting Goods Company (D&M), based in Plymouth, supplied equipment directly to the Boston Red Sox[citation:1]. Legendary players including Babe Ruth would visit Plymouth to select their gear[citation:1][citation:7], creating a unique connection between this small New Hampshire town and America's pastime.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">1939</div>
+                        <h3 class="timeline-event-title">Plymouth Teachers College</h3>
+                        <p class="timeline-description">
+                            The institution evolved from the Normal School to become Plymouth Teachers College[citation:1]. This change reflected a broader educational mission while maintaining its core focus on preparing educators for New Hampshire's schools.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">1963</div>
+                        <h3 class="timeline-event-title">Becoming Plymouth State College</h3>
+                        <p class="timeline-description">
+                            Marking two centuries since the town's incorporation, the educational institution was renamed Plymouth State College[citation:1]. This change signaled an expansion of academic programs beyond teacher education.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">2003</div>
+                        <h3 class="timeline-event-title">Plymouth State University</h3>
+                        <p class="timeline-description">
+                            <span class="timeline-highlight">The institution achieved university status</span>, becoming Plymouth State University[citation:1]. With over 3,300 undergraduate and 500 graduate students as of 2023/2024[citation:1], it solidified its role as an economic, medical, commercial, and cultural center for the region[citation:1].
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="timeline-date">2020s</div>
+                        <h3 class="timeline-event-title">Plymouth Today</h3>
+                        <p class="timeline-description">
+                            Plymouth continues as the economic and cultural hub for the predominantly rural Plymouth Labor Market Area[citation:1]. With a population of 6,682 as of the 2020 census[citation:1], it maintains its unique role at the foot of the White Mountains, bridging the Lakes Region and the White Mountains as its motto declares.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Table View -->
+            <div class="timeline-table-container fade-in">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--snow-white); font-size: 2rem;">Complete Timeline at a Glance</h3>
+                <table class="timeline-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Event</th>
+                            <th>Significance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-date">1712</td>
+                            <td class="table-event">Abenaki Village Burned</td>
+                            <td class="table-description">Captain Thomas Baker burns an Abenaki village during Queen Anne's War[citation:1]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">1763</td>
+                            <td class="table-event">Town Incorporated</td>
+                            <td class="table-description">Plymouth officially incorporated as "New Plymouth"[citation:1][citation:5]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">1806</td>
+                            <td class="table-event">Daniel Webster's First Case</td>
+                            <td class="table-description">Future statesman loses first criminal case in Plymouth[citation:1]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">1845 & 1860</td>
+                            <td class="table-event">Territory Expanded</td>
+                            <td class="table-description">Annexation of parts of Hebron and Campton[citation:1][citation:5]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">1864</td>
+                            <td class="table-event">Nathaniel Hawthorne Dies</td>
+                            <td class="table-description">Author dies while visiting Plymouth with former President Pierce[citation:1]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">1871</td>
+                            <td class="table-event">Normal School Founded</td>
+                            <td class="table-description">Plymouth Normal School established[citation:1]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">Early 1900s</td>
+                            <td class="table-event">Draper & Maynard Era</td>
+                            <td class="table-description">Local company supplies equipment to Boston Red Sox; Babe Ruth visits[citation:1][citation:7]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">1939</td>
+                            <td class="table-event">Teachers College Formed</td>
+                            <td class="table-description">Institution becomes Plymouth Teachers College[citation:1]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">1963</td>
+                            <td class="table-event">Plymouth State College</td>
+                            <td class="table-description">Renamed on town's 200th anniversary[citation:1]</td>
+                        </tr>
+                        <tr>
+                            <td class="table-date">2003</td>
+                            <td class="table-event">University Status Achieved</td>
+                            <td class="table-description">Becomes Plymouth State University[citation:1]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Plymouth Roots & Pines</h3>
+                    <p>For the People of Plymouth, By the People of Plymouth.</p>
+                    <p>A testament to our shared history and enduring spirit.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="spirit.html">The Pine Tree & The Spirit</a></li>
+                        <li><a href="timeline.html">Timeline of Plymouth</a></li>
+                        <li><a href="people.html">Notable People</a></li>
+                        <li><a href="gallery.html">Historical Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="legacy.html">Plymouth Today & Legacy</a></li>
+                        <li><a href="about.html">About This Project</a></li>
+                        <li><a href="about.html">Contact & Contribute</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer-disclaimer">
+                This site is created by and for the residents of Plymouth, New Hampshire.
+                It is a celebration of our shared history and community spirit, not a tourism portal.
+                All content is dedicated to preserving and honoring the Plymouth story.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMobile = document.getElementById('navMobile');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMobile.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-mobile a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMobile.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.8rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.98)';
+            } else {
+                header.style.padding = '1.2rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements meant to fade in
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
