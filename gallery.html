@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Plymouth Roots & Pines - A Visual Chronicle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --snow-white: #F8F9FA;
+            --tree-trunk: #8B4513;
+            --pine-green: #01796F;
+            --sky-blue: #87CEEB;
+            --deep-forest: #0A2F0A;
+            --night-sky: #0B131E;
+            --moonlight: #1E2A3A;
+            --parchment: #F5E9D4;
+            --copper: #B87333;
+            --transcend-gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--night-sky);
+            color: var(--snow-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* -------------------------------- */
+        /* HEADER / NAVIGATION */
+        /* -------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 47, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+            padding: 1.2rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .flag-icon {
+            width: 50px;
+            height: 35px;
+            background-color: var(--sky-blue);
+            position: relative;
+            border: 1px solid var(--tree-trunk);
+            border-radius: 2px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .flag-icon .pine-tree {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 25px;
+            background-color: var(--pine-green);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--snow-white);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--sky-blue);
+            letter-spacing: 1.5px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-desktop a {
+            color: var(--snow-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--sky-blue), var(--pine-green));
+            transition: width 0.3s ease;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--sky-blue);
+        }
+
+        .nav-desktop a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--snow-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* -------------------------------- */
+        /* HERO SECTION - GALLERY PAGE */
+        /* -------------------------------- */
+        .gallery-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth.jpg') center/cover fixed;
+            padding-top: 100px;
+        }
+
+        .gallery-hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .gallery-hero-title {
+            font-size: 4.2rem;
+            margin-bottom: 30px;
+            color: var(--snow-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-hero-description {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(248, 249, 250, 0.9);
+        }
+
+        /* -------------------------------- */
+        /* GALLERY FILTER CONTROLS */
+        /* -------------------------------- */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: var(--night-sky);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            color: var(--snow-white);
+            position: relative;
+            display: inline-block;
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            background: rgba(30, 42, 58, 0.5);
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            color: var(--snow-white);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: rgba(135, 206, 235, 0.1);
+            border-color: var(--sky-blue);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--pine-green), var(--deep-forest));
+            border-color: var(--sky-blue);
+        }
+
+        /* -------------------------------- */
+        /* GALLERY GRID */
+        /* -------------------------------- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 350px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 47, 10, 0.9), transparent);
+            padding: 30px 20px 20px;
+            transform: translateY(10px);
+            transition: transform 0.4s ease;
+            opacity: 0.9;
+        }
+
+        .gallery-item:hover .image-overlay {
+            transform: translateY(0);
+        }
+
+        .image-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--snow-white);
+        }
+
+        .image-description {
+            font-size: 0.9rem;
+            color: rgba(248, 249, 250, 0.8);
+            line-height: 1.5;
+        }
+
+        .image-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(10, 47, 10, 0.9);
+            color: var(--sky-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* -------------------------------- */
+        /* HISTORICAL COMPARISON SECTION */
+        /* -------------------------------- */
+        .comparison-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth-river.jpg') center/cover fixed;
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--snow-white);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .comparison-card {
+            background: rgba(30, 42, 58, 0.8);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(135, 206, 235, 0.2);
+        }
+
+        .comparison-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .comparison-content {
+            padding: 25px;
+        }
+
+        .comparison-era {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--transcend-gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comparison-location {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--snow-white);
+        }
+
+        .comparison-description {
+            color: rgba(248, 249, 250, 0.8);
+            font-size: 1rem;
+        }
+
+        /* -------------------------------- */
+        /* FULLSCREEN MODAL */
+        /* -------------------------------- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 47, 10, 0.98);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-info {
+            background: rgba(30, 42, 58, 0.95);
+            padding: 25px;
+            border-radius: 0 0 8px 8px;
+            margin-top: -5px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--snow-white);
+        }
+
+        .modal-description {
+            color: rgba(248, 249, 250, 0.9);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: var(--pine-green);
+            color: var(--snow-white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--deep-forest);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30, 42, 58, 0.8);
+            color: var(--snow-white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .modal-nav:hover {
+            background: var(--pine-green);
+        }
+
+        .modal-prev {
+            left: -70px;
+        }
+
+        .modal-next {
+            right: -70px;
+        }
+
+        @media (max-width: 992px) {
+            .modal-nav {
+                position: fixed;
+                top: auto;
+                bottom: 20px;
+                transform: none;
+            }
+            
+            .modal-prev {
+                left: 20px;
+            }
+            
+            .modal-next {
+                right: 20px;
+            }
+        }
+
+        /* -------------------------------- */
+        /* FOOTER */
+        /* -------------------------------- */
+        footer {
+            background: var(--deep-forest);
+            padding: 80px 0 30px;
+            border-top: 3px solid var(--tree-trunk);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--snow-white);
+        }
+
+        .footer-logo p {
+            color: rgba(248, 249, 250, 0.7);
+            margin-top: 10px;
+        }
+
+        .footer-nav h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--sky-blue);
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-nav h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tree-trunk);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 12px;
+        }
+
+        .footer-nav a {
+            color: rgba(248, 249, 250, 0.8);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-nav a:hover {
+            color: var(--sky-blue);
+            padding-left: 5px;
+        }
+
+        .footer-disclaimer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(135, 206, 235, 0.2);
+            color: rgba(248, 249, 250, 0.6);
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* -------------------------------- */
+        /* RESPONSIVE DESIGN */
+        /* -------------------------------- */
+        @media (max-width: 1100px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .gallery-hero-title {
+                font-size: 3.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .nav-mobile {
+                display: none;
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 300px;
+                height: calc(100vh - 80px);
+                background: rgba(10, 47, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 40px 30px;
+                transition: right 0.5s ease;
+                z-index: 999;
+                border-left: 2px solid var(--tree-trunk);
+            }
+
+            .nav-mobile.active {
+                display: flex;
+                right: 0;
+            }
+
+            .nav-mobile a {
+                color: var(--snow-white);
+                text-decoration: none;
+                font-size: 1.2rem;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+                display: block;
+            }
+
+            .nav-mobile a:hover {
+                color: var(--sky-blue);
+                padding-left: 10px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* -------------------------------- */
+        /* ANIMATIONS */
+        /* -------------------------------- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="flag-icon">
+                    <div class="pine-tree"></div>
+                </div>
+                <div class="logo-text">
+                    <h1>PLYMOUTH ROOTS & PINES</h1>
+                    <span>TRANSCENDENTALIST SPIRIT | APPEAL TO HEAVEN</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                <a href="spirit.html">The Spirit</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="people.html">Notable People</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <nav class="nav-mobile" id="navMobile">
+                <a href="index.html">Home</a>
+                <a href="spirit.html">The Spirit</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="people.html">Notable People</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gallery-hero">
+        <div class="container gallery-hero-content fade-in">
+            <p class="gallery-subtitle">Where History Meets the Eye</p>
+            <h1 class="gallery-hero-title">A Visual Chronicle of Plymouth</h1>
+            <p class="gallery-hero-description">
+                Images have the power to transcend time, connecting us to the landscapes, faces, and moments that have shaped our community. This gallery is a visual journey through Plymouth's past and present—a testament to the enduring spirit captured in photographs and art.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Through the Lens</span>
+                <h2 class="section-title">The Plymouth Collection</h2>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="gallery-filter fade-in">
+                <button class="filter-btn active" data-filter="all">All Images</button>
+                <button class="filter-btn" data-filter="historical">Historical</button>
+                <button class="filter-btn" data-filter="nature">Nature & Landscape</button>
+                <button class="filter-btn" data-filter="architecture">Architecture</button>
+                <button class="filter-btn" data-filter="people">People & Community</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Image 1: Pine Tree Flag -->
+                <div class="gallery-item fade-in" data-category="historical" data-index="1">
+                    <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="gallery-image">
+                    <span class="image-category">Historical</span>
+                    <div class="image-overlay">
+                        <h4 class="image-title">The Pine Tree Flag</h4>
+                        <p class="image-description">The revolutionary "Appeal to Heaven" flag, symbolizing New England's independence and self-reliance.</p>
+                    </div>
+                </div>
+
+                <!-- Image 2: Plymouth Woods -->
+                <div class="gallery-item fade-in delay-1" data-category="nature" data-index="2">
+                    <img src="images/plymouth-woods.jpg" alt="Plymouth Woods and Forest" class="gallery-image">
+                    <span class="image-category">Nature</span>
+                    <div class="image-overlay">
+                        <h4 class="image-title">The Enduring Forest</h4>
+                        <p class="image-description">White pine forests that have witnessed centuries of Plymouth's history, embodying the transcendental connection to nature.</p>
+                    </div>
+                </div>
+
+                <!-- Image 3: Plymouth Town Common -->
+                <div class="gallery-item fade-in" data-category="architecture" data-index="3">
+                    <img src="images/plymouth-common.jpg" alt="Historic Plymouth Common" class="gallery-image">
+                    <span class="image-category">Architecture</span>
+                    <div class="image-overlay">
+                        <h4 class="image-title">Town Common</h4>
+                        <p class="image-description">The historic heart of Plymouth, where community gatherings have taken place for generations.</p>
+                    </div>
+                </div>
+
+                <!-- Image 4: Pemigewasset River -->
+                <div class="gallery-item fade-in delay-1" data-category="nature" data-index="4">
+                    <img src="images/plymouth-river.jpg" alt="Pemigewasset River in Plymouth" class="gallery-image">
+                    <span class="image-category">Nature</span>
+                    <div class="image-overlay">
+                        <h4 class="image-title">The Pemigewasset River</h4>
+                        <p class="image-description">Lifeblood of the valley, this river has shaped Plymouth's geography and provided spiritual reflection for centuries.</p>
+                    </div>
+                </div>
+
+                <!-- Image 5: White Pine Tree -->
+                <div class="gallery-item fade-in" data-category="nature" data-index="5">
+                    <img src="images/white-pine-tree.jpg" alt="White Pine Tree in Plymouth" class="gallery-image">
+                    <span class="image-category">Nature</span>
+                    <div class="image-overlay">
+                        <h4 class="image-title">The White Pine</h4>
+                        <p class="image-description">New Hampshire's state tree, representing vertical aspiration and the connection between earth and sky.</p>
+                    </div>
+                </div>
+
+                <!-- Image 6: Plymouth Main Street (Historical) -->
+                <div class="gallery-item fade-in delay-1" data-category="historical" data-index="6">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #3a2c1c, #5d4a2c); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-history" style="font-size: 4rem; color: var(--transcend-gold);"></i>
+                    </div>
+                    <span class="image-category">Historical</span>
+                    <div class="image-overlay">
+                        <h4 class="image-title">Main Street, 1900s</h4>
+                        <p class="image-description">Early 20th century view of Plymouth's commercial center, with the Draper & Maynard factory in operation.</p>
+                    </div>
+                </div>
+
+                <!-- Image 7: Plymouth State University -->
+                <div class="gallery-item fade-in" data-category="architecture" data-index="7">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #1c2c3a, #2c4a6b); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-university" style="font-size: 4rem; color: var(--transcend-gold);"></i>
+                    </div>
+                    <span class="image-category">Architecture</span>
+                    <div class="image-overlay">
+                        <h4 class="image-title">Plymouth State University</h4>
+                        <p class="image-description">The historic campus that grew from the Normal School founded in 1871, now a center of education and culture.</p>
+                    </div>
+                </div>
+
+                <!-- Image 8: Community Gathering -->
+                <div class="gallery-item fade-in delay-1" data-category="people" data-index="8">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #2c3a1c, #4a6b2c); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-users" style="font-size: 4rem; color: var(--transcend-gold);"></i>
+                    </div>
+                    <span class="image-category">People</span>
+                    <div class="image-overlay">
+                        <h4 class="image-title">Community Spirit</h4>
+                        <p class="image-description">Plymouth residents gathering for town events, embodying the independent yet communal spirit of our home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historical Comparison Section -->
+    <section class="comparison-section">
+        <div class="container comparison-container">
+            <h2 class="comparison-title fade-in">Then & Now</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card fade-in">
+                    <img src="images/plymouth-common.jpg" alt="Plymouth Common Historical" class="comparison-image">
+                    <div class="comparison-content">
+                        <span class="comparison-era">Historical</span>
+                        <h3 class="comparison-location">Town Common, 19th Century</h3>
+                        <p class="comparison-description">
+                            The historic gathering place shaded by elm trees, where townspeople met for celebrations, protests, and community decisions—embodying the democratic spirit.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="comparison-card fade-in delay-1">
+                    <img src="images/plymouth.jpg" alt="Plymouth Contemporary" class="comparison-image">
+                    <div class="comparison-content">
+                        <span class="comparison-era">Contemporary</span>
+                        <h3 class="comparison-location">Plymouth Today</h3>
+                        <p class="comparison-description">
+                            Modern Plymouth maintains its historic character while embracing its role as an educational and cultural center for the region.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="comparison-card fade-in delay-2">
+                    <div class="comparison-image" style="background: linear-gradient(135deg, #1c3a2c, #2c6b4a); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-tree" style="font-size: 4rem; color: var(--transcend-gold);"></i>
+                    </div>
+                    <div class="comparison-content">
+                        <span class="comparison-era">Timeless</span>
+                        <h3 class="comparison-location">The Enduring Landscape</h3>
+                        <p class="comparison-description">
+                            While buildings and people change, the fundamental character of the land—the rivers, forests, and mountains—remains Plymouth's constant anchor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Modal -->
+    <div class="modal-overlay" id="imageModal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <button class="modal-nav modal-prev" id="modalPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="modal-nav modal-next" id="modalNext"><i class="fas fa-chevron-right"></i></button>
+        
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="" class="modal-image">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+                <p id="modalCategory"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Plymouth Roots & Pines</h3>
+                    <p>For the People of Plymouth, By the People of Plymouth.</p>
+                    <p>A testament to our shared history and enduring spirit.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="spirit.html">The Pine Tree & The Spirit</a></li>
+                        <li><a href="timeline.html">Timeline of Plymouth</a></li>
+                        <li><a href="people.html">Notable People</a></li>
+                        <li><a href="gallery.html">Historical Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="legacy.html">Plymouth Today & Legacy</a></li>
+                        <li><a href="about.html">About This Project</a></li>
+                        <li><a href="about.html">Contact & Contribute</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer-disclaimer">
+                This site is created by and for the residents of Plymouth, New Hampshire.
+                It is a celebration of our shared history and community spirit, not a tourism portal.
+                All content is dedicated to preserving and honoring the Plymouth story.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMobile = document.getElementById('navMobile');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMobile.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-mobile a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMobile.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.8rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.98)';
+            } else {
+                header.style.padding = '1.2rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.95)';
+            }
+        });
+
+        // Gallery Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+
+        let currentIndex = 0;
+        const galleryItemsArray = Array.from(galleryItems);
+
+        // Open modal when gallery item is clicked
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const index = parseInt(item.getAttribute('data-index')) - 1;
+                openModal(index);
+            });
+        });
+
+        function openModal(index) {
+            currentIndex = index;
+            const item = galleryItemsArray[index];
+            const img = item.querySelector('.gallery-image');
+            const title = item.querySelector('.image-title').textContent;
+            const description = item.querySelector('.image-description').textContent;
+            const category = item.querySelector('.image-category').textContent;
+            
+            modalImage.src = img.src;
+            modalImage.alt = img.alt;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalCategory.textContent = `Category: ${category}`;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function navigateModal(direction) {
+            currentIndex += direction;
+            
+            if (currentIndex < 0) {
+                currentIndex = galleryItemsArray.length - 1;
+            } else if (currentIndex >= galleryItemsArray.length) {
+                currentIndex = 0;
+            }
+            
+            openModal(currentIndex);
+        }
+
+        // Event listeners for modal controls
+        modalClose.addEventListener('click', closeModal);
+        modalPrev.addEventListener('click', () => navigateModal(-1));
+        modalNext.addEventListener('click', () => navigateModal(1));
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') navigateModal(-1);
+            if (e.key === 'ArrowRight') navigateModal(1);
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements meant to fade in
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
