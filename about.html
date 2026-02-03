@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Plymouth Roots & Pines - Our Story & Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --snow-white: #F8F9FA;
+            --tree-trunk: #8B4513;
+            --pine-green: #01796F;
+            --sky-blue: #87CEEB;
+            --deep-forest: #0A2F0A;
+            --night-sky: #0B131E;
+            --moonlight: #1E2A3A;
+            --parchment: #F5E9D4;
+            --copper: #B87333;
+            --transcend-gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--night-sky);
+            color: var(--snow-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* -------------------------------- */
+        /* HEADER / NAVIGATION */
+        /* -------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 47, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+            padding: 1.2rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .flag-icon {
+            width: 50px;
+            height: 35px;
+            background-color: var(--sky-blue);
+            position: relative;
+            border: 1px solid var(--tree-trunk);
+            border-radius: 2px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .flag-icon .pine-tree {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 25px;
+            background-color: var(--pine-green);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--snow-white);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--sky-blue);
+            letter-spacing: 1.5px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-desktop a {
+            color: var(--snow-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--sky-blue), var(--pine-green));
+            transition: width 0.3s ease;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--sky-blue);
+        }
+
+        .nav-desktop a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--snow-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* -------------------------------- */
+        /* HERO SECTION - ABOUT PAGE */
+        /* -------------------------------- */
+        .about-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth.jpg') center/cover fixed;
+            padding-top: 100px;
+        }
+
+        .about-hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .about-hero-title {
+            font-size: 4.2rem;
+            margin-bottom: 30px;
+            color: var(--snow-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-hero-description {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(248, 249, 250, 0.9);
+        }
+
+        /* -------------------------------- */
+        /* ABOUT CONTENT SECTIONS */
+        /* -------------------------------- */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--night-sky);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            color: var(--snow-white);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* -------------------------------- */
+        /* MISSION & VISION SECTION */
+        /* -------------------------------- */
+        .mission-section {
+            padding: 100px 0;
+            background: var(--moonlight);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .mission-card {
+            background: rgba(30, 42, 58, 0.5);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(135, 206, 235, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(135, 206, 235, 0.3);
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: rgba(135, 206, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--sky-blue);
+        }
+
+        .mission-icon i {
+            font-size: 2.5rem;
+            color: var(--sky-blue);
+        }
+
+        .mission-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--snow-white);
+        }
+
+        .mission-card p {
+            color: rgba(248, 249, 250, 0.8);
+        }
+
+        /* -------------------------------- */
+        /* PHILOSOPHICAL FOUNDATION */
+        /* -------------------------------- */
+        .philosophy-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth-woods.jpg') center/cover fixed;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .philosophy-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: var(--parchment);
+            font-style: italic;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .philosophy-quote::before,
+        .philosophy-quote::after {
+            content: '"';
+            position: absolute;
+            font-size: 4rem;
+            color: rgba(135, 206, 235, 0.2);
+        }
+
+        .philosophy-quote::before {
+            top: -20px;
+            left: 0;
+        }
+
+        .philosophy-quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+
+        .philosophy-text {
+            background: rgba(30, 42, 58, 0.7);
+            border-radius: 8px;
+            padding: 40px;
+            border-left: 4px solid var(--transcend-gold);
+        }
+
+        .philosophy-text h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--snow-white);
+        }
+
+        .philosophy-text p {
+            color: rgba(248, 249, 250, 0.85);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* -------------------------------- */
+        /* CONTACT & CONTRIBUTE SECTION */
+        /* -------------------------------- */
+        .contact-section {
+            padding: 100px 0;
+            background-color: var(--night-sky);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .contact-method {
+            text-align: center;
+            padding: 30px;
+            background: rgba(30, 42, 58, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(135, 206, 235, 0.1);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--transcend-gold);
+        }
+
+        .contact-icon i {
+            font-size: 2rem;
+            color: var(--transcend-gold);
+        }
+
+        .contact-method h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--snow-white);
+        }
+
+        .contact-method p {
+            color: rgba(248, 249, 250, 0.8);
+            margin-bottom: 15px;
+        }
+
+        .contact-link {
+            color: var(--sky-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .contact-link:hover {
+            gap: 12px;
+        }
+
+        /* -------------------------------- */
+        /* ACKNOWLEDGMENTS */
+        /* -------------------------------- */
+        .acknowledgments {
+            padding: 60px 0;
+            background: var(--deep-forest);
+            border-top: 2px solid var(--tree-trunk);
+        }
+
+        .acknowledgments-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .acknowledgments h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--snow-white);
+        }
+
+        .acknowledgments p {
+            color: rgba(248, 249, 250, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .acknowledgments-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .acknowledgments-list li {
+            background: rgba(135, 206, 235, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: var(--sky-blue);
+            font-size: 0.9rem;
+        }
+
+        /* -------------------------------- */
+        /* FOOTER */
+        /* -------------------------------- */
+        footer {
+            background: var(--deep-forest);
+            padding: 80px 0 30px;
+            border-top: 3px solid var(--tree-trunk);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--snow-white);
+        }
+
+        .footer-logo p {
+            color: rgba(248, 249, 250, 0.7);
+            margin-top: 10px;
+        }
+
+        .footer-nav h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--sky-blue);
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-nav h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tree-trunk);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 12px;
+        }
+
+        .footer-nav a {
+            color: rgba(248, 249, 250, 0.8);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-nav a:hover {
+            color: var(--sky-blue);
+            padding-left: 5px;
+        }
+
+        .footer-disclaimer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(135, 206, 235, 0.2);
+            color: rgba(248, 249, 250, 0.6);
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* -------------------------------- */
+        /* RESPONSIVE DESIGN */
+        /* -------------------------------- */
+        @media (max-width: 1100px) {
+            .mission-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-hero-title {
+                font-size: 3.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .nav-mobile {
+                display: none;
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 300px;
+                height: calc(100vh - 80px);
+                background: rgba(10, 47, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 40px 30px;
+                transition: right 0.5s ease;
+                z-index: 999;
+                border-left: 2px solid var(--tree-trunk);
+            }
+
+            .nav-mobile.active {
+                display: flex;
+                right: 0;
+            }
+
+            .nav-mobile a {
+                color: var(--snow-white);
+                text-decoration: none;
+                font-size: 1.2rem;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+                display: block;
+            }
+
+            .nav-mobile a:hover {
+                color: var(--sky-blue);
+                padding-left: 10px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-quote {
+                font-size: 1.5rem;
+                padding: 0 10px;
+            }
+        }
+
+        /* -------------------------------- */
+        /* ANIMATIONS */
+        /* -------------------------------- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="flag-icon">
+                    <div class="pine-tree"></div>
+                </div>
+                <div class="logo-text">
+                    <h1>PLYMOUTH ROOTS & PINES</h1>
+                    <span>TRANSCENDENTALIST SPIRIT | APPEAL TO HEAVEN</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                <a href="spirit.html">The Spirit</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="people.html">Notable People</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html" class="active">About</a>
+            </nav>
+
+            <nav class="nav-mobile" id="navMobile">
+                <a href="index.html">Home</a>
+                <a href="spirit.html">The Spirit</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="people.html">Notable People</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html" class="active">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container about-hero-content fade-in">
+            <p class="about-subtitle">Our Story, Our Purpose, Our Community</p>
+            <h1 class="about-hero-title">About This Project</h1>
+            <p class="about-hero-description">
+                Plymouth Roots & Pines is more than a website—it's a digital hearth where the stories of our town are kept alive. Created by and for the people of Plymouth, this project represents our collective commitment to preserving and honoring the unique spirit of this place we call home.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Our Purpose</span>
+                <h2 class="section-title">Mission & Vision</h2>
+            </div>
+
+            <div class="mission-grid">
+                <div class="mission-card fade-in">
+                    <div class="mission-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Preservation</h3>
+                    <p>To preserve the authentic history and stories of Plymouth, ensuring they're passed down accurately to future generations of residents.</p>
+                </div>
+
+                <div class="mission-card fade-in delay-1">
+                    <div class="mission-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>To create a space owned by the community, for the community—not a tourism portal but a living archive of our shared experience.</p>
+                </div>
+
+                <div class="mission-card fade-in delay-2">
+                    <div class="mission-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Education</h3>
+                    <p>To educate about the philosophical and historical connections between Plymouth's past and the enduring values that shape our present.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophical Foundation Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Our Foundation</span>
+                <h2 class="section-title">Philosophical Roots</h2>
+            </div>
+
+            <div class="philosophy-content">
+                <p class="philosophy-quote fade-in">
+                    "In every walk with nature one receives far more than he seeks. The pine stands for the continuity of life, its roots in the past, its branches in the future."
+                </p>
+
+                <div class="philosophy-text fade-in delay-1">
+                    <h3>The Transcendentalist Connection</h3>
+                    <p>
+                        This project is grounded in the belief that places have spirit, and that Plymouth's spirit is uniquely tied to the transcendentalist values that flourished in 19th century New England. Like Thoreau at Walden Pond and Emerson in Concord, we believe that nature is not just scenery but revelation—a pathway to understanding deeper truths about ourselves and our community.
+                    </p>
+                    <p>
+                        The "Appeal to Heaven" flag that inspires our visual identity represents more than historical rebellion. It embodies the philosophical stance that when earthly remedies are exhausted, we must appeal to higher principles—a concept that resonates with both revolutionary history and transcendentalist spirituality.
+                    </p>
+                    <p>
+                        Plymouth's location at the confluence of the Pemigewasset and Baker rivers, nestled against the White Mountains, has always invited reflection and independence. This project seeks to honor that legacy by creating a digital space that mirrors the values of self-reliance, community responsibility, and spiritual connection to the land that have defined Plymouth for centuries.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Contribute Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Get Involved</span>
+                <h2 class="section-title">Contribute & Connect</h2>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-methods">
+                    <div class="contact-method fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h4>Share Your Stories</h4>
+                        <p>Do you have family stories, photographs, or documents related to Plymouth's history?</p>
+                        <a href="#contact" class="contact-link">
+                            Contribute Materials <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact-method fade-in delay-1">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Join the Conversation</h4>
+                        <p>Participate in community discussions about Plymouth's history and future.</p>
+                        <a href="#contact" class="contact-link">
+                            Connect With Others <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact-method fade-in delay-2">
+                        <div class="contact-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h4>Volunteer</h4>
+                        <p>Help with research, digitization, or community outreach for this project.</p>
+                        <a href="#contact" class="contact-link">
+                            Offer Your Skills <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="philosophy-text fade-in" id="contact">
+                    <h3>Contact Information</h3>
+                    <p>
+                        <strong>Project Email:</strong> info@plymouthrootsandpines.org<br>
+                        <strong>Community Coordinator:</strong> [Your Name/Contact Person]<br>
+                        <strong>Physical Materials:</strong> Can be brought to the Plymouth Historical Society during regular hours
+                    </p>
+                    <p>
+                        <em>Please note:</em> This is a community-driven project. Response times may vary as all work is done by volunteers. We appreciate your patience and enthusiasm for preserving Plymouth's story.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acknowledgments Section -->
+    <section class="acknowledgments">
+        <div class="container acknowledgments-content">
+            <h3 class="fade-in">With Gratitude</h3>
+            <p class="fade-in delay-1">
+                This project would not be possible without the generations of Plymouth residents who have preserved stories, photographs, and memories. We stand on the shoulders of those who came before us, and we build this digital archive for those who will come after.
+            </p>
+            <p class="fade-in delay-2">
+                Special thanks to the Plymouth Historical Society, Plymouth State University's Lamson Library, and the countless individuals who have shared their personal collections and family histories.
+            </p>
+            
+            <ul class="acknowledgments-list fade-in delay-3">
+                <li>Plymouth Historical Society</li>
+                <li>Plymouth State University</li>
+                <li>Local Historians & Researchers</li>
+                <li>Community Volunteers</li>
+                <li>Generations of Plymouth Families</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Plymouth Roots & Pines</h3>
+                    <p>For the People of Plymouth, By the People of Plymouth.</p>
+                    <p>A testament to our shared history and enduring spirit.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="spirit.html">The Pine Tree & The Spirit</a></li>
+                        <li><a href="timeline.html">Timeline of Plymouth</a></li>
+                        <li><a href="people.html">Notable People</a></li>
+                        <li><a href="gallery.html">Historical Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="legacy.html">Plymouth Today & Legacy</a></li>
+                        <li><a href="about.html">About This Project</a></li>
+                        <li><a href="about.html#contact">Contact & Contribute</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer-disclaimer">
+                This site is created by and for the residents of Plymouth, New Hampshire.
+                It is a celebration of our shared history and community spirit, not a tourism portal.
+                All content is dedicated to preserving and honoring the Plymouth story.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMobile = document.getElementById('navMobile');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMobile.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-mobile a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMobile.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.8rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.98)';
+            } else {
+                header.style.padding = '1.2rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements meant to fade in
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
