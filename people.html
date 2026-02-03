@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notable People | Plymouth Roots & Pines - Faces of the Forest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --snow-white: #F8F9FA;
+            --tree-trunk: #8B4513;
+            --pine-green: #01796F;
+            --sky-blue: #87CEEB;
+            --deep-forest: #0A2F0A;
+            --night-sky: #0B131E;
+            --moonlight: #1E2A3A;
+            --parchment: #F5E9D4;
+            --copper: #B87333;
+            --transcend-gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--night-sky);
+            color: var(--snow-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* -------------------------------- */
+        /* HEADER / NAVIGATION */
+        /* -------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 47, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+            padding: 1.2rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .flag-icon {
+            width: 50px;
+            height: 35px;
+            background-color: var(--sky-blue);
+            position: relative;
+            border: 1px solid var(--tree-trunk);
+            border-radius: 2px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .flag-icon .pine-tree {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 25px;
+            background-color: var(--pine-green);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--snow-white);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--sky-blue);
+            letter-spacing: 1.5px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-desktop a {
+            color: var(--snow-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--sky-blue), var(--pine-green));
+            transition: width 0.3s ease;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--sky-blue);
+        }
+
+        .nav-desktop a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--snow-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* -------------------------------- */
+        /* HERO SECTION - PEOPLE PAGE */
+        /* -------------------------------- */
+        .people-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth.jpg') center/cover fixed;
+            padding-top: 100px;
+        }
+
+        .people-hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .people-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .people-hero-title {
+            font-size: 4.2rem;
+            margin-bottom: 30px;
+            color: var(--snow-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .people-hero-description {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(248, 249, 250, 0.9);
+        }
+
+        /* -------------------------------- */
+        /* PEOPLE GRID SECTION */
+        /* -------------------------------- */
+        .people-section {
+            padding: 120px 0;
+            background-color: var(--night-sky);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            color: var(--snow-white);
+            position: relative;
+            display: inline-block;
+        }
+
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .person-card {
+            background: linear-gradient(145deg, rgba(30, 42, 58, 0.7), rgba(11, 19, 30, 0.9));
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(135, 206, 235, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            position: relative;
+        }
+
+        .person-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--pine-green), var(--sky-blue));
+        }
+
+        .person-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(135, 206, 235, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .person-image-container {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .person-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .person-card:hover .person-image {
+            transform: scale(1.05);
+        }
+
+        .person-era {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 47, 10, 0.9);
+            color: var(--sky-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .person-content {
+            padding: 30px;
+        }
+
+        .person-name {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--snow-white);
+        }
+
+        .person-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: var(--transcend-gold);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .person-description {
+            color: rgba(248, 249, 250, 0.8);
+            margin-bottom: 25px;
+        }
+
+        .person-quote {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--transcend-gold);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+            color: var(--parchment);
+        }
+
+        .person-legacy {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--sky-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .person-legacy i {
+            color: var(--pine-green);
+        }
+
+        /* -------------------------------- */
+        /* CATEGORY SECTIONS */
+        /* -------------------------------- */
+        .category-section {
+            margin-bottom: 100px;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--snow-white);
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--pine-green), var(--sky-blue));
+        }
+
+        /* -------------------------------- */
+        /* LOCAL VOICES SECTION */
+        /* -------------------------------- */
+        .local-voices {
+            padding: 100px 0;
+            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth-common.jpg') center/cover fixed;
+        }
+
+        .voices-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .voices-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--snow-white);
+        }
+
+        .voices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .voice-card {
+            background: rgba(30, 42, 58, 0.8);
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .voice-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .voice-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.5;
+            color: var(--parchment);
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .voice-quote::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 3rem;
+            color: rgba(135, 206, 235, 0.2);
+        }
+
+        .voice-author {
+            color: var(--transcend-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .voice-role {
+            color: rgba(248, 249, 250, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* -------------------------------- */
+        /* FOOTER */
+        /* -------------------------------- */
+        footer {
+            background: var(--deep-forest);
+            padding: 80px 0 30px;
+            border-top: 3px solid var(--tree-trunk);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--snow-white);
+        }
+
+        .footer-logo p {
+            color: rgba(248, 249, 250, 0.7);
+            margin-top: 10px;
+        }
+
+        .footer-nav h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--sky-blue);
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-nav h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tree-trunk);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 12px;
+        }
+
+        .footer-nav a {
+            color: rgba(248, 249, 250, 0.8);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-nav a:hover {
+            color: var(--sky-blue);
+            padding-left: 5px;
+        }
+
+        .footer-disclaimer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(135, 206, 235, 0.2);
+            color: rgba(248, 249, 250, 0.6);
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* -------------------------------- */
+        /* RESPONSIVE DESIGN */
+        /* -------------------------------- */
+        @media (max-width: 1100px) {
+            .people-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .people-hero-title {
+                font-size: 3.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .nav-mobile {
+                display: none;
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 300px;
+                height: calc(100vh - 80px);
+                background: rgba(10, 47, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 40px 30px;
+                transition: right 0.5s ease;
+                z-index: 999;
+                border-left: 2px solid var(--tree-trunk);
+            }
+
+            .nav-mobile.active {
+                display: flex;
+                right: 0;
+            }
+
+            .nav-mobile a {
+                color: var(--snow-white);
+                text-decoration: none;
+                font-size: 1.2rem;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+                display: block;
+            }
+
+            .nav-mobile a:hover {
+                color: var(--sky-blue);
+                padding-left: 10px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .people-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .people-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .voices-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* -------------------------------- */
+        /* ANIMATIONS */
+        /* -------------------------------- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="flag-icon">
+                    <div class="pine-tree"></div>
+                </div>
+                <div class="logo-text">
+                    <h1>PLYMOUTH ROOTS & PINES</h1>
+                    <span>TRANSCENDENTALIST SPIRIT | APPEAL TO HEAVEN</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-desktop">
+                <a href="index.html">Home</a>
+                <a href="spirit.html">The Spirit</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="people.html" class="active">Notable People</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <nav class="nav-mobile" id="navMobile">
+                <a href="index.html">Home</a>
+                <a href="spirit.html">The Spirit</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="people.html" class="active">Notable People</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="legacy.html">Legacy</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="people-hero">
+        <div class="container people-hero-content fade-in">
+            <p class="people-subtitle">Individual Souls Shaping a Collective Spirit</p>
+            <h1 class="people-hero-title">Faces of the Forest</h1>
+            <p class="people-hero-description">
+                From early settlers to modern stewards, Plymouth has been shaped by remarkable individuals whose lives embody the independent, transcendentalist spirit of this land. Their stories form the living roots of our community, each contributing to the enduring character of our town.
+            </p>
+        </div>
+    </section>
+
+    <!-- People Grid Section -->
+    <section class="people-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Pioneers & Visionaries</span>
+                <h2 class="section-title">Notable Plymouth Figures</h2>
+            </div>
+
+            <!-- Early Settlers & Founders Category -->
+            <div class="category-section fade-in">
+                <h3 class="category-title">Early Settlers & Founders</h3>
+                
+                <div class="people-grid">
+                    <!-- Thomas Baker -->
+                    <div class="person-card">
+                        <div class="person-image-container">
+                            <div class="person-image" style="background: linear-gradient(135deg, var(--moonlight), var(--deep-forest)); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-fort" style="font-size: 5rem; color: var(--transcend-gold);"></i>
+                            </div>
+                            <span class="person-era">1712</span>
+                        </div>
+                        <div class="person-content">
+                            <h3 class="person-name">Captain Thomas Baker</h3>
+                            <p class="person-title">Military Captain & Early Figure</p>
+                            <p class="person-description">
+                                During Queen Anne's War, Baker led an expedition that burned an Abenaki village at the site of present-day Plymouth. This controversial figure represents the complex early history of the Pemigewasset Valley, where colonial ambitions met indigenous communities.
+                            </p>
+                            <div class="person-quote">
+                                "His actions during Queen Anne's War marked a violent turning point in the valley's history."
+                            </div>
+                            <div class="person-legacy">
+                                <i class="fas fa-landmark"></i>
+                                <span>Plymouth's earliest colonial history</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Daniel Webster -->
+                    <div class="person-card">
+                        <div class="person-image-container">
+                            <div class="person-image" style="background: linear-gradient(135deg, #2c3e50, #4a6491); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-balance-scale" style="font-size: 5rem; color: var(--transcend-gold);"></i>
+                            </div>
+                            <span class="person-era">1806</span>
+                        </div>
+                        <div class="person-content">
+                            <h3 class="person-name">Daniel Webster</h3>
+                            <p class="person-title">Statesman & Orator</p>
+                            <p class="person-description">
+                                As a young lawyer, Webster tried his first criminal case in Plymouth—and lost. This early setback for the future statesman and orator marks Plymouth's place in New Hampshire's legal history. The courthouse where he argued would later become home to the Plymouth Historical Society.
+                            </p>
+                            <div class="person-quote">
+                                "This New Hampshire courthouse witnessed the humble beginnings of a national figure."
+                            </div>
+                            <div class="person-legacy">
+                                <i class="fas fa-gavel"></i>
+                                <span>Legal history & early career beginnings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Literary & Cultural Figures Category -->
+            <div class="category-section fade-in delay-1">
+                <h3 class="category-title">Literary & Cultural Connections</h3>
+                
+                <div class="people-grid">
+                    <!-- Nathaniel Hawthorne -->
+                    <div class="person-card">
+                        <div class="person-image-container">
+                            <div class="person-image" style="background: linear-gradient(135deg, #3a1c1c, #6b2c2c); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-pen-nib" style="font-size: 5rem; color: var(--transcend-gold);"></i>
+                            </div>
+                            <span class="person-era">1864</span>
+                        </div>
+                        <div class="person-content">
+                            <h3 class="person-name">Nathaniel Hawthorne</h3>
+                            <p class="person-title">Author of The Scarlet Letter</p>
+                            <p class="person-description">
+                                Hawthorne died while visiting Plymouth with former President Franklin Pierce. They were staying at the grand Pemigewasset House hotel. His connection to Plymouth ties our town to the literary currents of 19th century America, particularly the dark romanticism that contrasted with transcendental optimism.
+                            </p>
+                            <div class="person-quote">
+                                "In this White Mountains hotel, one of America's great literary voices fell silent."
+                            </div>
+                            <div class="person-legacy">
+                                <i class="fas fa-book-open"></i>
+                                <span>American literary history connection</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Franklin Pierce -->
+                    <div class="person-card">
+                        <div class="person-image-container">
+                            <div class="person-image" style="background: linear-gradient(135deg, #1a2b3c, #2c5282); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-presidential" style="font-size: 5rem; color: var(--transcend-gold);"></i>
+                            </div>
+                            <span class="person-era">1864</span>
+                        </div>
+                        <div class="person-content">
+                            <h3 class="person-name">Franklin Pierce</h3>
+                            <p class="person-title">14th U.S. President</p>
+                            <p class="person-description">
+                                The only U.S. President from New Hampshire, Pierce was traveling with his friend Nathaniel Hawthorne when the author died in Plymouth. Pierce's connection to our town highlights how even national figures found solace and companionship in the White Mountains region.
+                            </p>
+                            <div class="person-quote">
+                                "A presidential companion in a moment of literary tragedy."
+                            </div>
+                            <div class="person-legacy">
+                                <i class="fas fa-flag-usa"></i>
+                                <span>Presidential history & regional connections</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business & Sports Connections Category -->
+            <div class="category-section fade-in delay-2">
+                <h3 class="category-title">Business & Sports Connections</h3>
+                
+                <div class="people-grid">
+                    <!-- Draper & Maynard Founders -->
+                    <div class="person-card">
+                        <div class="person-image-container">
+                            <div class="person-image" style="background: linear-gradient(135deg, #1b4332, #2d6a4f); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-baseball-ball" style="font-size: 5rem; color: var(--transcend-gold);"></i>
+                            </div>
+                            <span class="person-era">Early 1900s</span>
+                        </div>
+                        <div class="person-content">
+                            <h3 class="person-name">Draper & Maynard</h3>
+                            <p class="person-title">Sporting Goods Innovators</p>
+                            <p class="person-description">
+                                This Plymouth-based company became the official supplier of baseball gloves to the Boston Red Sox. Their factory drew visits from baseball legends including Babe Ruth, connecting our small town to America's pastime in its golden age.
+                            </p>
+                            <div class="person-quote">
+                                "From a Plymouth factory to Fenway Park—gloves that touched baseball history."
+                            </div>
+                            <div class="person-legacy">
+                                <i class="fas fa-industry"></i>
+                                <span>Local industry with national impact</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Babe Ruth -->
+                    <div class="person-card">
+                        <div class="person-image-container">
+                            <div class="person-image" style="background: linear-gradient(135deg, #7b2c0f, #bc6c25); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-baseball" style="font-size: 5rem; color: var(--transcend-gold);"></i>
+                            </div>
+                            <span class="person-era">1910s-1920s</span>
+                        </div>
+                        <div class="person-content">
+                            <h3 class="person-name">Babe Ruth</h3>
+                            <p class="person-title">Baseball Legend</p>
+                            <p class="person-description">
+                                The Sultan of Swat visited Plymouth to select custom gloves from the Draper & Maynard factory. His visits created legendary local stories and cemented Plymouth's surprising connection to Major League Baseball during its early glory days.
+                            </p>
+                            <div class="person-quote">
+                                "Even baseball's greatest star found his way to our small New Hampshire town."
+                            </div>
+                            <div class="person-legacy">
+                                <i class="fas fa-star"></i>
+                                <span>Sports history & celebrity connections</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Voices Section -->
+    <section class="local-voices">
+        <div class="container voices-container">
+            <h2 class="voices-title fade-in">Voices of Plymouth Today</h2>
+            
+            <div class="voices-grid">
+                <div class="voice-card fade-in">
+                    <p class="voice-quote">
+                        My family has lived in Plymouth for five generations. The independence our founders showed isn't just history—it's in how we approach challenges today, working together while respecting each person's ability to think for themselves.
+                    </p>
+                    <p class="voice-author">Margaret Chen</p>
+                    <p class="voice-role">Lifelong resident & local historian</p>
+                </div>
+
+                <div class="voice-card fade-in delay-1">
+                    <p class="voice-quote">
+                        Teaching at Plymouth State, I see how the transcendentalist values of self-reliance and connection to nature still resonate with our students. They come here not just for education, but to find something authentic in themselves.
+                    </p>
+                    <p class="voice-author">Dr. Robert Thayer</p>
+                    <p class="voice-role">Professor of Environmental Philosophy</p>
+                </div>
+
+                <div class="voice-card fade-in delay-2">
+                    <p class="voice-quote">
+                        As a carpenter working with local wood, I feel connected to those early settlers who built this town from the forest. There's a continuity in working with materials from this land—it keeps history alive in our hands.
+                    </p>
+                    <p class="voice-author">James "Woody" Fitzgerald</p>
+                    <p class="voice-role">Local craftsman & woodworker</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Plymouth Roots & Pines</h3>
+                    <p>For the People of Plymouth, By the People of Plymouth.</p>
+                    <p>A testament to our shared history and enduring spirit.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="spirit.html">The Pine Tree & The Spirit</a></li>
+                        <li><a href="timeline.html">Timeline of Plymouth</a></li>
+                        <li><a href="people.html">Notable People</a></li>
+                        <li><a href="gallery.html">Historical Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="legacy.html">Plymouth Today & Legacy</a></li>
+                        <li><a href="about.html">About This Project</a></li>
+                        <li><a href="about.html">Contact & Contribute</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer-disclaimer">
+                This site is created by and for the residents of Plymouth, New Hampshire.
+                It is a celebration of our shared history and community spirit, not a tourism portal.
+                All content is dedicated to preserving and honoring the Plymouth story.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMobile = document.getElementById('navMobile');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMobile.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-mobile a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMobile.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.8rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.98)';
+            } else {
+                header.style.padding = '1.2rem 0';
+                header.style.background = 'rgba(10, 47, 10, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements meant to fade in
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
