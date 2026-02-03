@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plymouth Gallery: A visual journey through our town's history, nature, and community spirit">
     <title>Gallery | Plymouth Roots & Pines - A Visual Chronicle</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,8 +37,9 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--night-sky);
             color: var(--snow-white);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
@@ -47,42 +49,46 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
+            width: 100%;
         }
 
         /* -------------------------------- */
-        /* HEADER / NAVIGATION */
+        /* HEADER / NAVIGATION - OPTIMIZED */
         /* -------------------------------- */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 47, 10, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 47, 10, 0.98);
             border-bottom: 1px solid rgba(139, 69, 19, 0.3);
-            padding: 1.2rem 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+            transition: padding 0.3s ease, background 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-decoration: none;
+            min-width: 0;
         }
 
         .flag-icon {
-            width: 50px;
-            height: 35px;
+            width: 40px;
+            height: 28px;
             background-color: var(--sky-blue);
             position: relative;
             border: 1px solid var(--tree-trunk);
@@ -96,14 +102,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 30px;
-            height: 25px;
+            width: 24px;
+            height: 20px;
             background-color: var(--pine-green);
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         }
 
         .logo-text h1 {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             color: var(--snow-white);
             letter-spacing: 0.5px;
             line-height: 1.1;
@@ -111,24 +117,26 @@
 
         .logo-text span {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--sky-blue);
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         .nav-desktop {
             display: flex;
-            gap: 40px;
+            gap: 30px;
         }
 
         .nav-desktop a {
             color: var(--snow-white);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
             position: relative;
             padding: 8px 0;
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         .nav-desktop a::after {
@@ -157,53 +165,72 @@
             color: var(--snow-white);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 5px;
+            min-width: 44px;
+            min-height: 44px;
         }
 
         /* -------------------------------- */
-        /* HERO SECTION - GALLERY PAGE */
+        /* HERO SECTION - GALLERY PAGE OPTIMIZED */
         /* -------------------------------- */
         .gallery-hero {
             position: relative;
             min-height: 70vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth.jpg') center/cover fixed;
-            padding-top: 100px;
+            background: 
+                linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)),
+                url('images/plymouth.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+
+        /* Disable fixed background on mobile for performance */
+        @media (min-width: 769px) {
+            .gallery-hero {
+                background-attachment: fixed;
+            }
         }
 
         .gallery-hero-content {
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
+            padding: 20px;
         }
 
         .gallery-subtitle {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
             color: var(--sky-blue);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-style: italic;
         }
 
         .gallery-hero-title {
-            font-size: 4.2rem;
-            margin-bottom: 30px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            margin-bottom: 20px;
             color: var(--snow-white);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            word-wrap: break-word;
         }
 
         .gallery-hero-description {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             max-width: 700px;
             margin: 0 auto 40px;
             color: rgba(248, 249, 250, 0.9);
+            line-height: 1.6;
         }
 
         /* -------------------------------- */
-        /* GALLERY FILTER CONTROLS */
+        /* GALLERY FILTER CONTROLS OPTIMIZED */
         /* -------------------------------- */
         .gallery-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background-color: var(--night-sky);
         }
 
@@ -215,16 +242,16 @@
         .section-tag {
             display: inline-block;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: var(--sky-blue);
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 3.2rem;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             color: var(--snow-white);
             position: relative;
             display: inline-block;
@@ -234,12 +261,12 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 50px;
+            gap: 10px;
+            margin-bottom: 40px;
         }
 
         .filter-btn {
-            padding: 12px 24px;
+            padding: 10px 20px;
             background: rgba(30, 42, 58, 0.5);
             border: 1px solid rgba(135, 206, 235, 0.2);
             color: var(--snow-white);
@@ -248,6 +275,9 @@
             font-weight: 500;
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            min-height: 40px;
+            min-width: 120px;
         }
 
         .filter-btn:hover {
@@ -261,13 +291,13 @@
         }
 
         /* -------------------------------- */
-        /* GALLERY GRID */
+        /* GALLERY GRID OPTIMIZED */
         /* -------------------------------- */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
         }
 
         .gallery-item {
@@ -275,13 +305,14 @@
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 350px;
+            transition: transform 0.3s ease;
+            aspect-ratio: 1/1;
+            background-color: var(--moonlight);
         }
 
         .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .gallery-image {
@@ -289,6 +320,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
+            aspect-ratio: 1/1;
         }
 
         .gallery-item:hover .gallery-image {
@@ -300,66 +332,73 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(10, 47, 10, 0.9), transparent);
-            padding: 30px 20px 20px;
-            transform: translateY(10px);
-            transition: transform 0.4s ease;
-            opacity: 0.9;
-        }
-
-        .gallery-item:hover .image-overlay {
-            transform: translateY(0);
+            background: linear-gradient(to top, rgba(10, 47, 10, 0.95), transparent);
+            padding: 20px 15px 15px;
+            opacity: 0.95;
         }
 
         .image-title {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
             color: var(--snow-white);
+            line-height: 1.2;
         }
 
         .image-description {
-            font-size: 0.9rem;
-            color: rgba(248, 249, 250, 0.8);
-            line-height: 1.5;
+            font-size: 0.85rem;
+            color: rgba(248, 249, 250, 0.9);
+            line-height: 1.4;
         }
 
         .image-category {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 12px;
+            right: 12px;
             background: rgba(10, 47, 10, 0.9);
             color: var(--sky-blue);
-            padding: 5px 15px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         /* -------------------------------- */
-        /* HISTORICAL COMPARISON SECTION */
+        /* HISTORICAL COMPARISON SECTION OPTIMIZED */
         /* -------------------------------- */
         .comparison-section {
-            padding: 100px 0;
-            background: linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)), url('images/plymouth-river.jpg') center/cover fixed;
+            padding: 60px 0;
+            background: 
+                linear-gradient(rgba(10, 47, 10, 0.85), rgba(10, 47, 10, 0.9)),
+                url('images/plymouth-river.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        @media (min-width: 769px) {
+            .comparison-section {
+                background-attachment: fixed;
+            }
         }
 
         .comparison-container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .comparison-title {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 4vw, 2.8rem);
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             color: var(--snow-white);
         }
 
         .comparison-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 30px;
         }
 
         .comparison-card {
@@ -367,41 +406,49 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(135, 206, 235, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
         }
 
         .comparison-image {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
+            aspect-ratio: 16/9;
         }
 
         .comparison-content {
-            padding: 25px;
+            padding: 20px;
         }
 
         .comparison-era {
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--transcend-gold);
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .comparison-location {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
             color: var(--snow-white);
+            line-height: 1.2;
         }
 
         .comparison-description {
             color: rgba(248, 249, 250, 0.8);
-            font-size: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* -------------------------------- */
-        /* FULLSCREEN MODAL */
+        /* FULLSCREEN MODAL OPTIMIZED */
         /* -------------------------------- */
         .modal-overlay {
             display: none;
@@ -414,7 +461,7 @@
             z-index: 2000;
             justify-content: center;
             align-items: center;
-            padding: 40px;
+            padding: 20px;
         }
 
         .modal-overlay.active {
@@ -422,9 +469,13 @@
         }
 
         .modal-content {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 100%;
+            max-height: 100%;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
         }
 
         .modal-image {
@@ -432,33 +483,37 @@
             height: auto;
             max-height: 70vh;
             object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            flex: 1;
         }
 
         .modal-info {
             background: rgba(30, 42, 58, 0.95);
-            padding: 25px;
+            padding: 20px;
             border-radius: 0 0 8px 8px;
-            margin-top: -5px;
         }
 
         .modal-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
             color: var(--snow-white);
         }
 
         .modal-description {
             color: rgba(248, 249, 250, 0.9);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .modal-category {
+            color: var(--sky-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
         .modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
+            position: fixed;
+            top: 20px;
+            right: 20px;
             background: var(--pine-green);
             color: var(--snow-white);
             border: none;
@@ -471,6 +526,7 @@
             align-items: center;
             justify-content: center;
             transition: background 0.3s;
+            z-index: 2001;
         }
 
         .modal-close:hover {
@@ -478,21 +534,22 @@
         }
 
         .modal-nav {
-            position: absolute;
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(30, 42, 58, 0.8);
             color: var(--snow-white);
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
+            z-index: 2001;
         }
 
         .modal-nav:hover {
@@ -500,19 +557,23 @@
         }
 
         .modal-prev {
-            left: -70px;
+            left: 10px;
         }
 
         .modal-next {
-            right: -70px;
+            right: 10px;
         }
 
-        @media (max-width: 992px) {
+        @media (min-width: 768px) {
+            .modal-content {
+                max-width: 90%;
+                max-height: 90%;
+            }
+            
             .modal-nav {
-                position: fixed;
-                top: auto;
-                bottom: 20px;
-                transform: none;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
             
             .modal-prev {
@@ -525,36 +586,38 @@
         }
 
         /* -------------------------------- */
-        /* FOOTER */
+        /* FOOTER OPTIMIZED */
         /* -------------------------------- */
         footer {
             background: var(--deep-forest);
-            padding: 80px 0 30px;
+            padding: 60px 0 25px;
             border-top: 3px solid var(--tree-trunk);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-logo h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
             color: var(--snow-white);
         }
 
         .footer-logo p {
             color: rgba(248, 249, 250, 0.7);
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .footer-nav h4 {
             font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
+            font-size: 1rem;
+            margin-bottom: 20px;
             color: var(--sky-blue);
             position: relative;
             padding-bottom: 10px;
@@ -577,129 +640,174 @@
         }
 
         .footer-nav li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-nav a {
             color: rgba(248, 249, 250, 0.8);
             text-decoration: none;
-            transition: color 0.3s, padding-left 0.3s;
+            transition: color 0.3s;
             display: inline-block;
+            font-size: 0.95rem;
         }
 
         .footer-nav a:hover {
             color: var(--sky-blue);
-            padding-left: 5px;
         }
 
         .footer-disclaimer {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 25px;
             border-top: 1px solid rgba(135, 206, 235, 0.2);
             color: rgba(248, 249, 250, 0.6);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             max-width: 800px;
             margin: 0 auto;
             font-style: italic;
+            line-height: 1.5;
+            padding: 25px 20px 0;
         }
 
         /* -------------------------------- */
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN IMPROVED */
         /* -------------------------------- */
-        @media (max-width: 1100px) {
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+            
             .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 25px;
+                gap: 30px;
+            }
+            
+            .comparison-grid {
+                gap: 40px;
+            }
+            
+            .comparison-image {
+                height: 250px;
             }
         }
 
-        @media (max-width: 992px) {
-            .gallery-hero-title {
-                font-size: 3.5rem;
+        @media (min-width: 992px) {
+            .nav-desktop {
+                display: flex;
             }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 40px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
 
+        @media (max-width: 991px) {
             .mobile-menu-btn {
                 display: block;
             }
-
+            
             .nav-desktop {
                 display: none;
             }
-
+            
             .nav-mobile {
-                display: none;
                 position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 300px;
-                height: calc(100vh - 80px);
+                top: 70px;
+                right: 0;
+                width: 100%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
                 background: rgba(10, 47, 10, 0.98);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
-                padding: 40px 30px;
-                transition: right 0.5s ease;
+                padding: 30px 20px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
                 z-index: 999;
                 border-left: 2px solid var(--tree-trunk);
+                overflow-y: auto;
             }
-
+            
             .nav-mobile.active {
-                display: flex;
-                right: 0;
+                transform: translateX(0);
             }
-
+            
             .nav-mobile a {
                 color: var(--snow-white);
                 text-decoration: none;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 padding: 15px 0;
                 border-bottom: 1px solid rgba(139, 69, 19, 0.3);
                 display: block;
+                transition: padding-left 0.3s;
             }
-
+            
             .nav-mobile a:hover {
                 color: var(--sky-blue);
                 padding-left: 10px;
             }
-
-            .container {
-                padding: 0 30px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
         }
 
-        @media (max-width: 768px) {
-            .gallery-hero-title {
-                font-size: 2.8rem;
+        @media (max-width: 767px) {
+            .header-container {
+                padding: 0 15px;
             }
-
-            .section-title {
-                font-size: 2.5rem;
+            
+            .gallery-hero-content {
+                padding: 15px;
             }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
+            
             .comparison-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
 
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-filter {
+                gap: 8px;
+            }
+            
             .filter-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+                min-width: 100px;
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .image-overlay {
+                padding: 15px 12px 12px;
+            }
+            
+            .image-title {
+                font-size: 1.1rem;
+            }
+            
+            .image-description {
+                font-size: 0.8rem;
             }
         }
 
         /* -------------------------------- */
-        /* ANIMATIONS */
+        /* ANIMATIONS & PERFORMANCE */
         /* -------------------------------- */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -709,19 +817,60 @@
 
         .fade-in {
             opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .delay-1 {
-            animation-delay: 0.2s;
+        .fade-in.animated {
+            animation: fadeInUp 0.6s ease forwards;
         }
 
-        .delay-2 {
-            animation-delay: 0.4s;
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            .fade-in.animated {
+                animation: none;
+                opacity: 1;
+            }
+            
+            .gallery-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .gallery-item:hover .gallery-image {
+                transform: none;
+            }
+            
+            .comparison-card:hover {
+                transform: none;
+            }
+            
+            .gallery-hero,
+            .comparison-section {
+                background-attachment: scroll !important;
+            }
         }
 
-        .delay-3 {
-            animation-delay: 0.6s;
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .gallery-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .comparison-card:hover {
+                transform: none;
+            }
+            
+            .nav-desktop a:hover::after {
+                width: 0;
+            }
         }
     </style>
 </head>
@@ -729,8 +878,8 @@
     <!-- Fixed Navigation -->
     <header>
         <div class="container header-container">
-            <a href="index.html" class="logo">
-                <div class="flag-icon">
+            <a href="index.html" class="logo" aria-label="Plymouth Roots & Pines Home">
+                <div class="flag-icon" aria-hidden="true">
                     <div class="pine-tree"></div>
                 </div>
                 <div class="logo-text">
@@ -739,11 +888,11 @@
                 </div>
             </a>
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <nav class="nav-desktop">
+            <nav class="nav-desktop" aria-label="Main Navigation">
                 <a href="index.html">Home</a>
                 <a href="spirit.html">The Spirit</a>
                 <a href="timeline.html">Timeline</a>
@@ -753,7 +902,7 @@
                 <a href="about.html">About</a>
             </nav>
 
-            <nav class="nav-mobile" id="navMobile">
+            <nav class="nav-mobile" id="navMobile" aria-label="Mobile Navigation" hidden>
                 <a href="index.html">Home</a>
                 <a href="spirit.html">The Spirit</a>
                 <a href="timeline.html">Timeline</a>
@@ -797,7 +946,7 @@
             <div class="gallery-grid">
                 <!-- Image 1: Pine Tree Flag -->
                 <div class="gallery-item fade-in" data-category="historical" data-index="1">
-                    <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="gallery-image">
+                    <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="gallery-image" loading="lazy" width="300" height="300">
                     <span class="image-category">Historical</span>
                     <div class="image-overlay">
                         <h4 class="image-title">The Pine Tree Flag</h4>
@@ -807,7 +956,7 @@
 
                 <!-- Image 2: Plymouth Woods -->
                 <div class="gallery-item fade-in delay-1" data-category="nature" data-index="2">
-                    <img src="images/plymouth-woods.jpg" alt="Plymouth Woods and Forest" class="gallery-image">
+                    <img src="images/plymouth-woods.jpg" alt="Plymouth Woods and Forest" class="gallery-image" loading="lazy" width="300" height="300">
                     <span class="image-category">Nature</span>
                     <div class="image-overlay">
                         <h4 class="image-title">The Enduring Forest</h4>
@@ -817,7 +966,7 @@
 
                 <!-- Image 3: Plymouth Town Common -->
                 <div class="gallery-item fade-in" data-category="architecture" data-index="3">
-                    <img src="images/plymouth-common.jpg" alt="Historic Plymouth Common" class="gallery-image">
+                    <img src="images/plymouth-common.jpg" alt="Historic Plymouth Common" class="gallery-image" loading="lazy" width="300" height="300">
                     <span class="image-category">Architecture</span>
                     <div class="image-overlay">
                         <h4 class="image-title">Town Common</h4>
@@ -827,7 +976,7 @@
 
                 <!-- Image 4: Pemigewasset River -->
                 <div class="gallery-item fade-in delay-1" data-category="nature" data-index="4">
-                    <img src="images/plymouth-river.jpg" alt="Pemigewasset River in Plymouth" class="gallery-image">
+                    <img src="images/plymouth-river.jpg" alt="Pemigewasset River in Plymouth" class="gallery-image" loading="lazy" width="300" height="300">
                     <span class="image-category">Nature</span>
                     <div class="image-overlay">
                         <h4 class="image-title">The Pemigewasset River</h4>
@@ -837,7 +986,7 @@
 
                 <!-- Image 5: White Pine Tree -->
                 <div class="gallery-item fade-in" data-category="nature" data-index="5">
-                    <img src="images/white-pine-tree.jpg" alt="White Pine Tree in Plymouth" class="gallery-image">
+                    <img src="images/white-pine-tree.jpg" alt="White Pine Tree in Plymouth" class="gallery-image" loading="lazy" width="300" height="300">
                     <span class="image-category">Nature</span>
                     <div class="image-overlay">
                         <h4 class="image-title">The White Pine</h4>
@@ -848,7 +997,7 @@
                 <!-- Image 6: Plymouth Main Street (Historical) -->
                 <div class="gallery-item fade-in delay-1" data-category="historical" data-index="6">
                     <div class="gallery-image" style="background: linear-gradient(135deg, #3a2c1c, #5d4a2c); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-history" style="font-size: 4rem; color: var(--transcend-gold);"></i>
+                        <i class="fas fa-history" style="font-size: 3rem; color: var(--transcend-gold);"></i>
                     </div>
                     <span class="image-category">Historical</span>
                     <div class="image-overlay">
@@ -860,7 +1009,7 @@
                 <!-- Image 7: Plymouth State University -->
                 <div class="gallery-item fade-in" data-category="architecture" data-index="7">
                     <div class="gallery-image" style="background: linear-gradient(135deg, #1c2c3a, #2c4a6b); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-university" style="font-size: 4rem; color: var(--transcend-gold);"></i>
+                        <i class="fas fa-university" style="font-size: 3rem; color: var(--transcend-gold);"></i>
                     </div>
                     <span class="image-category">Architecture</span>
                     <div class="image-overlay">
@@ -872,7 +1021,7 @@
                 <!-- Image 8: Community Gathering -->
                 <div class="gallery-item fade-in delay-1" data-category="people" data-index="8">
                     <div class="gallery-image" style="background: linear-gradient(135deg, #2c3a1c, #4a6b2c); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-users" style="font-size: 4rem; color: var(--transcend-gold);"></i>
+                        <i class="fas fa-users" style="font-size: 3rem; color: var(--transcend-gold);"></i>
                     </div>
                     <span class="image-category">People</span>
                     <div class="image-overlay">
@@ -891,7 +1040,7 @@
             
             <div class="comparison-grid">
                 <div class="comparison-card fade-in">
-                    <img src="images/plymouth-common.jpg" alt="Plymouth Common Historical" class="comparison-image">
+                    <img src="images/plymouth-common.jpg" alt="Plymouth Common Historical" class="comparison-image" loading="lazy" width="400" height="225">
                     <div class="comparison-content">
                         <span class="comparison-era">Historical</span>
                         <h3 class="comparison-location">Town Common, 19th Century</h3>
@@ -902,7 +1051,7 @@
                 </div>
 
                 <div class="comparison-card fade-in delay-1">
-                    <img src="images/plymouth.jpg" alt="Plymouth Contemporary" class="comparison-image">
+                    <img src="images/plymouth.jpg" alt="Plymouth Contemporary" class="comparison-image" loading="lazy" width="400" height="225">
                     <div class="comparison-content">
                         <span class="comparison-era">Contemporary</span>
                         <h3 class="comparison-location">Plymouth Today</h3>
@@ -914,7 +1063,7 @@
 
                 <div class="comparison-card fade-in delay-2">
                     <div class="comparison-image" style="background: linear-gradient(135deg, #1c3a2c, #2c6b4a); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-tree" style="font-size: 4rem; color: var(--transcend-gold);"></i>
+                        <i class="fas fa-tree" style="font-size: 3rem; color: var(--transcend-gold);"></i>
                     </div>
                     <div class="comparison-content">
                         <span class="comparison-era">Timeless</span>
@@ -935,11 +1084,11 @@
         <button class="modal-nav modal-next" id="modalNext"><i class="fas fa-chevron-right"></i></button>
         
         <div class="modal-content">
-            <img id="modalImage" src="" alt="" class="modal-image">
+            <img id="modalImage" src="" alt="" class="modal-image" loading="lazy">
             <div class="modal-info">
                 <h3 id="modalTitle"></h3>
                 <p id="modalDescription"></p>
-                <p id="modalCategory"></p>
+                <p id="modalCategory" class="modal-category"></p>
             </div>
         </div>
     </div>
@@ -988,33 +1137,43 @@
         const navMobile = document.getElementById('navMobile');
 
         mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            navMobile.hidden = !navMobile.hidden;
             navMobile.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
+            
+            // Update icon
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = isExpanded ? 'fas fa-bars' : 'fas fa-times';
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-mobile a').forEach(link => {
             link.addEventListener('click', () => {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                navMobile.hidden = true;
                 navMobile.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
             });
         });
 
-        // Header scroll effect
+        // Header scroll effect with throttling
+        let scrollTimeout;
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '0.8rem 0';
-                header.style.background = 'rgba(10, 47, 10, 0.98)';
-            } else {
-                header.style.padding = '1.2rem 0';
-                header.style.background = 'rgba(10, 47, 10, 0.95)';
-            }
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.padding = '0.7rem 0';
+                    header.style.background = 'rgba(10, 47, 10, 0.98)';
+                } else {
+                    header.style.padding = '1rem 0';
+                    header.style.background = 'rgba(10, 47, 10, 0.95)';
+                }
+            }, 10);
         });
 
-        // Gallery Filter Functionality
+        // Gallery Filter Functionality - Optimized
         const filterButtons = document.querySelectorAll('.filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
 
@@ -1028,24 +1187,23 @@
                 
                 // Filter gallery items
                 galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    const category = item.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
                         item.style.display = 'block';
                         setTimeout(() => {
                             item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
                         }, 10);
                     } else {
                         item.style.opacity = '0';
-                        item.style.transform = 'translateY(20px)';
                         setTimeout(() => {
                             item.style.display = 'none';
-                        }, 300);
+                        }, 150);
                     }
                 });
             });
         });
 
-        // Modal Functionality
+        // Modal Functionality - Optimized
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const modalTitle = document.getElementById('modalTitle');
@@ -1069,13 +1227,23 @@
         function openModal(index) {
             currentIndex = index;
             const item = galleryItemsArray[index];
-            const img = item.querySelector('.gallery-image');
+            
+            // Get image source - check if it's a real image or a background div
+            const imgElement = item.querySelector('.gallery-image');
+            let imageSrc = imgElement.src;
+            if (imageSrc.includes('images/')) {
+                modalImage.src = imageSrc;
+                modalImage.alt = imgElement.alt;
+            } else {
+                // For placeholder images, use a transparent pixel
+                modalImage.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMEEyRjBBIi8+PC9zdmc+';
+                modalImage.alt = 'Gallery image placeholder';
+            }
+            
             const title = item.querySelector('.image-title').textContent;
             const description = item.querySelector('.image-description').textContent;
             const category = item.querySelector('.image-category').textContent;
             
-            modalImage.src = img.src;
-            modalImage.alt = img.alt;
             modalTitle.textContent = title;
             modalDescription.textContent = description;
             modalCategory.textContent = `Category: ${category}`;
@@ -1122,25 +1290,43 @@
             if (e.key === 'ArrowRight') navigateModal(1);
         });
 
-        // Animate elements on scroll
+        // Animate elements on scroll with Intersection Observer
         const observerOptions = {
-            threshold: 0.15,
+            threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.classList.add('animated');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all elements meant to fade in
+        // Observe all fade-in elements
         document.querySelectorAll('.fade-in').forEach((el) => {
             observer.observe(el);
         });
+
+        // Preload critical images
+        function preloadImage(url) {
+            const img = new Image();
+            img.src = url;
+        }
+
+        window.addEventListener('load', () => {
+            preloadImage('images/plymouth.jpg');
+            preloadImage('images/plymouth-river.jpg');
+        });
+
+        // Optimize for mobile - disable parallax on touch devices
+        if ('ontouchstart' in window || navigator.maxTouchPoints) {
+            document.querySelectorAll('.gallery-hero, .comparison-section').forEach(section => {
+                section.style.backgroundAttachment = 'scroll';
+            });
+        }
     </script>
 </body>
 </html>
