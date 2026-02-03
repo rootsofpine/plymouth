@@ -174,12 +174,10 @@
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         }
 
+        /* FIXED: Removed problematic background-clip for logo text */
         .logo-text h1 {
             font-size: 1.5rem;
-            background: linear-gradient(to right, var(--snow-white), var(--sky-blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--snow-white); /* Changed from gradient to solid color */
             letter-spacing: 0.5px;
             line-height: 1.1;
         }
@@ -251,18 +249,21 @@
             font-style: italic;
         }
 
+        /* FIXED: Hero title with proper gradient text */
         .hero-title {
             font-size: 4.5rem;
             margin-bottom: 30px;
+            color: var(--snow-white); /* Fallback for browsers that don't support background-clip */
             background: linear-gradient(135deg, var(--snow-white) 30%, var(--sky-blue) 100%);
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
         }
 
         .hero-title span {
             display: block;
             color: var(--pine-green);
+            -webkit-text-fill-color: var(--pine-green);
         }
 
         .hero-description {
@@ -819,8 +820,8 @@
             <div class="container">
                 <div class="spirit-grid">
                     <div class="flag-display fade-in">
-                        <!-- Authentic "An Appeal to Heaven" Flag SVG -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/An_Appeal_to_Heaven_Flag.svg/1280px-An_Appeal_to_Heaven_Flag.svg.png" alt="An Appeal to Heaven Pine Tree Flag" class="authentic-flag">
+                        <!-- Using your local pinetreeflag.jpg image -->
+                        <img src="images/pinetreeflag.jpg" alt="An Appeal to Heaven Pine Tree Flag" class="authentic-flag">
                         <p class="flag-caption">The "An Appeal to Heaven" Flag – A symbol of revolutionary self-reliance and divine appeal</p>
                     </div>
                     <div class="spirit-text fade-in delay-1">
